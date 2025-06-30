@@ -21,10 +21,11 @@ final class GobangGrid {
 
     var type: PlayerType = .none {
         didSet {
-            if oldValue != type {
-                paint()
+            if self.type != oldValue
+            {
+                self.paint()
 
-                if type == .player {
+                if self.type == .player {
                     logicAgent?.onGridDone(grid: self)
                 }
             }
@@ -57,6 +58,6 @@ final class GobangGrid {
     }
 
     private func paint() {
-        paintAgent.onPaint(self)
+        paintAgent.onPaint(grid: self)
     }
 }

@@ -34,10 +34,10 @@ class GobangLogic: GirdLogicAgent {
     private var turn: PlayerType = .none
     private var over: Bool = false
     private var grids: [[GobangGrid?]]
-    private weak var listener: GobangLogicListener?
+    private weak var delegate: GobangLogicDelegate?
 
-    init(listener: GobangLogicListener, dimension: Int) {
-        self.listener = listener
+    init(delegate: GobangLogicDelegate, dimension: Int) {
+        self.delegate = delegate
         self.gridDimension = dimension
         self.grids = Array(
             repeating: Array(repeating: nil, count: dimension),
@@ -45,7 +45,7 @@ class GobangLogic: GirdLogicAgent {
         )
     }
 
-    func onGridDone(_ grid: GobangGrid) {
+    func onGridDone(grid: GobangGrid) {
         guard !over else { return }
 
         locX = grid.x
@@ -69,22 +69,22 @@ class GobangLogic: GirdLogicAgent {
         for i in 0..<gridDimension {
             for j in 0..<gridDimension {
                 if grids[i][j] == nil {
-                    if let grid = listener?.createGrid(x: i, y: j) {
+                    if let grid = delegate?.createGrid(x: i, y: j) {
                         grid.setXY(x: i, y: j)
                         grid.setLogicAgent(self)
 
-                        var edge = GridEdge.center.value
+                        var edge = GridEdge.center.rawValue
 
                         if i == 0 {
-                            edge |= GridEdge.left.value
+                            edge |= GridEdge.left.rawValue
                         } else if i == gridDimension - 1 {
-                            edge |= GridEdge.right.value
+                            edge |= GridEdge.right.rawValue
                         }
 
                         if j == 0 {
-                            edge |= GridEdge.top.value
+                            edge |= GridEdge.top.rawValue
                         } else if j == gridDimension - 1 {
-                            edge |= GridEdge.bottom.value
+                            edge |= GridEdge.bottom.rawValue
                         }
 
                         grid.edge = edge
@@ -146,7 +146,7 @@ class GobangLogic: GirdLogicAgent {
             steps.forEach { step in
                 grids[step[0]][step[1]]?.connectedDirection = direction
             }
-            listener?.onPlayerWon(check)
+            delegate?.onPlayerWon(winner: check)
         } else {
             direction = direction.next()
             if direction != .nilDirection {

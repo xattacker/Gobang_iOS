@@ -19,6 +19,10 @@
 		C55CA8C82E127B3200E4DF3C /* PlayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8C72E127B3200E4DF3C /* PlayerType.swift */; };
 		C55CA8CA2E127B9900E4DF3C /* GirdLogicAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8C92E127B9900E4DF3C /* GirdLogicAgent.swift */; };
 		C55CA8CC2E127BF200E4DF3C /* GobangGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8CB2E127BF200E4DF3C /* GobangGrid.swift */; };
+		C55CA8CE2E12904E00E4DF3C /* ConnectedDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8CD2E12904E00E4DF3C /* ConnectedDirection.swift */; };
+		C55CA8D02E12909600E4DF3C /* GridEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8CF2E12909600E4DF3C /* GridEdge.swift */; };
+		C55CA8D22E1290CF00E4DF3C /* GobangLogicListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8D12E1290CF00E4DF3C /* GobangLogicListener.swift */; };
+		C55CA8D42E1291A300E4DF3C /* GobangGridPaintAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8D32E1291A300E4DF3C /* GobangGridPaintAgent.swift */; };
 		C5A181302D38AE00007353B8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A1812F2D38ADFE007353B8 /* MainView.swift */; };
 		C5A567592D50592E004F1A06 /* PickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A567582D50592E004F1A06 /* PickerButton.swift */; };
 		C5A5675B2D505CF8004F1A06 /* PickerSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5675A2D505CF8004F1A06 /* PickerSheetView.swift */; };
@@ -45,6 +49,10 @@
 		C55CA8C72E127B3200E4DF3C /* PlayerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerType.swift; sourceTree = "<group>"; };
 		C55CA8C92E127B9900E4DF3C /* GirdLogicAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirdLogicAgent.swift; sourceTree = "<group>"; };
 		C55CA8CB2E127BF200E4DF3C /* GobangGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangGrid.swift; sourceTree = "<group>"; };
+		C55CA8CD2E12904E00E4DF3C /* ConnectedDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedDirection.swift; sourceTree = "<group>"; };
+		C55CA8CF2E12909600E4DF3C /* GridEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridEdge.swift; sourceTree = "<group>"; };
+		C55CA8D12E1290CF00E4DF3C /* GobangLogicListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangLogicListener.swift; sourceTree = "<group>"; };
+		C55CA8D32E1291A300E4DF3C /* GobangGridPaintAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangGridPaintAgent.swift; sourceTree = "<group>"; };
 		C5A1812F2D38ADFE007353B8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C5A567582D50592E004F1A06 /* PickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerButton.swift; sourceTree = "<group>"; };
 		C5A5675A2D505CF8004F1A06 /* PickerSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerSheetView.swift; sourceTree = "<group>"; };
@@ -105,9 +113,13 @@
 			isa = PBXGroup;
 			children = (
 				C55CA8C72E127B3200E4DF3C /* PlayerType.swift */,
+				C55CA8CD2E12904E00E4DF3C /* ConnectedDirection.swift */,
+				C55CA8CF2E12909600E4DF3C /* GridEdge.swift */,
 				C55CA8CB2E127BF200E4DF3C /* GobangGrid.swift */,
+				C55CA8D32E1291A300E4DF3C /* GobangGridPaintAgent.swift */,
 				C55CA8C92E127B9900E4DF3C /* GirdLogicAgent.swift */,
 				C55CA8C52E127AFC00E4DF3C /* GobangLogic.swift */,
+				C55CA8D12E1290CF00E4DF3C /* GobangLogicListener.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -207,6 +219,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C55CA8D02E12909600E4DF3C /* GridEdge.swift in Sources */,
+				C55CA8CE2E12904E00E4DF3C /* ConnectedDirection.swift in Sources */,
 				C55CA8C62E127AFC00E4DF3C /* GobangLogic.swift in Sources */,
 				C5DA0D452D40D0D700B61667 /* AlertHandleModifier.swift in Sources */,
 				C5A5675B2D505CF8004F1A06 /* PickerSheetView.swift in Sources */,
@@ -217,8 +231,10 @@
 				C55CA8CC2E127BF200E4DF3C /* GobangGrid.swift in Sources */,
 				C5A6433E2D1E85710038336D /* DynamicBottomSheetViewContainer.swift in Sources */,
 				C5A5675F2D509FAE004F1A06 /* Color+Extension.swift in Sources */,
+				C55CA8D42E1291A300E4DF3C /* GobangGridPaintAgent.swift in Sources */,
 				68E91B30234D816C000507AE /* ContentEntranceView.swift in Sources */,
 				C55CA8C82E127B3200E4DF3C /* PlayerType.swift in Sources */,
+				C55CA8D22E1290CF00E4DF3C /* GobangLogicListener.swift in Sources */,
 				C53B790B2D5739D000E306CA /* MultiPickerButton.swift in Sources */,
 				C5A6433C2D1E82510038336D /* GetHeightModifier.swift in Sources */,
 				C5A5675D2D5094E9004F1A06 /* SheetSelectionViewContainer.swift in Sources */,
