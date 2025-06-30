@@ -164,7 +164,7 @@ class GobangLogic: GirdLogicAgent {
     func gobangAI() {
         var play = true
 
-        for i in (1...2).reversed() {
+        for _ in (1...2).reversed() {
             play.toggle()
             gobangAI4(player: play)
             if turn == .player { return }
@@ -195,11 +195,11 @@ class GobangLogic: GirdLogicAgent {
                 offsetY += 1
                 checkDirections[offsetX] = true
             }
-        } while (!x.inBounds(0..<gridDimension) || !y.inBounds(0..<gridDimension) || grids[x][y]?.type != .none) && offsetY < 8
+        } while (!x.inBounds(0..<gridDimension) || !y.inBounds(0..<gridDimension) || grids[x][y]?.type != PlayerType.none) && offsetY < 8
 
         checkDirections = [Bool](repeating: false, count: 8)
 
-        if x.inBounds(0..<gridDimension), y.inBounds(0..<gridDimension), grids[x][y]?.type == .none {
+        if x.inBounds(0..<gridDimension), y.inBounds(0..<gridDimension), grids[x][y]?.type == PlayerType.none {
             setAIMark(x: x, y: y)
         } else {
             gobangRandom2()
@@ -210,7 +210,7 @@ class GobangLogic: GirdLogicAgent {
         repeat {
             x = Int.random(in: 0..<gridDimension)
             y = Int.random(in: 0..<gridDimension)
-        } while grids[x][y]?.type != .none
+        } while grids[x][y]?.type != PlayerType.none
 
         setAIMark(x: x, y: y)
     }
@@ -247,12 +247,12 @@ class GobangLogic: GirdLogicAgent {
             if count == step {
                 if (tempX + offsetX).inBounds(0..<gridDimension),
                    (tempY + offsetY).inBounds(0..<gridDimension),
-                   grids[tempX + offsetX][tempY + offsetY]?.type == .none {
+                   grids[tempX + offsetX][tempY + offsetY]?.type == PlayerType.none {
 
                     if (tempX - step * offsetX).notInBounds(0..<gridDimension) ||
                        (tempY - step * offsetY).notInBounds(0..<gridDimension) ||
                        !gobangSpaceAI(x: tempX + offsetX, y: tempY + offsetY) ||
-                       grids[tempX - step * offsetX][tempY - step * offsetY]?.type != .none && step < 3 {
+                        grids[tempX - step * offsetX][tempY - step * offsetY]?.type != PlayerType.none && step < 3 {
                         gobangAI3_2()
                     } else {
                         checkAIMark(x: tempX + offsetX, y: tempY + offsetY)
@@ -282,7 +282,7 @@ class GobangLogic: GirdLogicAgent {
         for i in 0..<gridDimension {
             for j in 0..<gridDimension {
                 if turn == .player { break }
-                if grids[i][j]?.type == .none {
+                if grids[i][j]?.type == PlayerType.none {
                     direction = .lt_rb
                     locX = i
                     locY = j
@@ -342,7 +342,10 @@ class GobangLogic: GirdLogicAgent {
         x = locX + offsetX
         y = locY + offsetY
 
-        while x.inBounds(0..<gridDimension), y.inBounds(0..<gridDimension), grids[x][y]?.type == .none, count < 4 {
+        while x.inBounds(0..<gridDimension),
+              y.inBounds(0..<gridDimension),
+              grids[x][y]?.type == PlayerType.none,
+              count < 4 {
             count += 1
             x += offsetX
             y += offsetY
@@ -354,23 +357,33 @@ class GobangLogic: GirdLogicAgent {
         if count == 4,
            x.inBounds(0..<gridDimension),
            y.inBounds(0..<gridDimension),
-           grids[x][y]?.type == .none {
+           grids[x][y]?.type == PlayerType.none
+        {
             setAIMark(x: locX + offsetX, y: locY + offsetY)
-        } else if count > 1 {
+        } else if count > 1
+        {
             if count == 4 { count = 3 }
 
-            while x.inBounds(0..<gridDimension), y.inBounds(0..<gridDimension), grids[x][y]?.type == .none, count < 4 {
+            while x.inBounds(0..<gridDimension),
+                  y.inBounds(0..<gridDimension),
+                  grids[x][y]?.type == PlayerType.none,
+                  count < 4 {
                 count += 1
                 x -= offsetX
                 y -= offsetY
             }
 
-            if count == 4 {
+            if count == 4
+            {
                 setAIMark(x: locX + offsetX, y: locY + offsetY)
-            } else if direction != .nilDirection {
+            }
+            else if direction != .nilDirection
+            {
                 gobangAI5_2()
             }
-        } else if direction != .nilDirection {
+        }
+        else if direction != .nilDirection
+        {
             gobangAI5_2()
         }
     }
@@ -384,7 +397,10 @@ class GobangLogic: GirdLogicAgent {
             space += 1
             tempX += offsetX
             tempY += offsetY
-        } while tempX.inBounds(0..<gridDimension), tempY.inBounds(0..<gridDimension), grids[tempX][tempY]?.type == .none, space < 4
+        } while tempX.inBounds(0 ..< gridDimension) &&
+                tempY.inBounds(0..<gridDimension) &&
+                grids[tempX][tempY]?.type == PlayerType.none &&
+                space < 4
 
         if space + count >= 5 {
             return true
@@ -393,7 +409,10 @@ class GobangLogic: GirdLogicAgent {
             tempX = locX - offsetX
             tempY = locY - offsetY
 
-            while tempX.inBounds(0..<gridDimension), tempY.inBounds(0..<gridDimension), grids[tempX][tempY]?.type == .none, space < 4 {
+            while tempX.inBounds(0..<gridDimension) &&
+                  tempY.inBounds(0..<gridDimension) &&
+                  grids[tempX][tempY]?.type == PlayerType.none &&
+                  space < 4 {
                 space += 1
                 tempX -= offsetX
                 tempY -= offsetY
@@ -412,7 +431,10 @@ class GobangLogic: GirdLogicAgent {
             space += 1
             tempX += offsetX
             tempY += offsetY
-        } while tempX.inBounds(0..<gridDimension), tempY.inBounds(0..<gridDimension), grids[tempX][tempY]?.type == .none, space < 4
+        } while tempX.inBounds(0..<gridDimension) &&
+                tempY.inBounds(0..<gridDimension) &&
+                grids[tempX][tempY]?.type == PlayerType.none &&
+                space < 4
 
         if space + step >= 5 {
             setAIMark(x: x, y: y)
@@ -426,16 +448,19 @@ class GobangLogic: GirdLogicAgent {
             histories.append(grid)
             grid.type = .computer
         }
+        
         winCheck()
         turn = .player
     }
 }
 
+
 extension Int {
-    func inBounds(_ range: Range<Int>) -> Bool {
+    fileprivate func inBounds(_ range: Range<Int>) -> Bool {
         return range.contains(self)
     }
-    func notInBounds(_ range: Range<Int>) -> Bool {
+    
+    fileprivate func notInBounds(_ range: Range<Int>) -> Bool {
         return !range.contains(self)
     }
 }
