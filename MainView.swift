@@ -1,29 +1,17 @@
 //
-//  ListView.swift
-//  SwiftUITester
+//  MainView.swift
+//  Gobang
 //
-//  Created by xattacker.tao on 2025/1/16.
+//  Created by xattacker.tao on 2025/06/30.
 //  Copyright © 2025 Xattacker. All rights reserved.
 //
 
 import SwiftUI
 
 
-struct ListView: View, CustomNavigationDisplayer
+struct MainView: View, CustomNavigationDisplayer
 {
-    private let items: [ListItem]
-    
     init() {
-        var items = [ListItem]()
-        
-        for i in 0 ... 100
-        {
-            let item = ListItem()
-            item.title = "\(i)"
-            items.append(item)
-        }
-        
-        self.items = items
     }
     
     var navigationTitle: String
@@ -59,11 +47,6 @@ struct ListView: View, CustomNavigationDisplayer
     {
         return CustomViewContainer(
                 content: {
-                    List(self.items) {
-                            // loop through all the posts and create a post view for each item
-                          item in
-                        ListItemCellView(item: item)
-                        }.listStyle(.plain)
                 },
                 navigationDisplayer: self)
     }

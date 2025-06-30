@@ -1,8 +1,8 @@
 //
 //  Color+Extension.swift
-//  SwiftUITester
+//  Gobang
 //
-//  Created by xattacker.tao on 2025/2/3.
+//  Created by xattacker.tao on 2025/06/30.
 //  Copyright © 2025 Xattacker. All rights reserved.
 //
 

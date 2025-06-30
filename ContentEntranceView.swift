@@ -1,9 +1,9 @@
 //
 //  ContentEntranceView.swift
-//  SwiftUITester
+//  Gobang
 //
-//  Created by xattacker.tao on 2019/10/9.
-//  Copyright © 2019 Xattacker. All rights reserved.
+//  Created by xattacker.tao on 2025/06/30.
+//  Copyright © 2025 Xattacker. All rights reserved.
 //
 
 import SwiftUI
@@ -48,14 +48,8 @@ struct ContentEntranceView: View, CustomNavigationDisplayer
                  CustomViewContainer(
                      content: {
                          VStack(spacing: 20) {
-                             NavigationLink(destination: ListView()) {
+                             NavigationLink(destination: MainView()) {
                                  Text("List")
-                             }
-                             NavigationLink(destination: GridView()) {
-                                 Text("Grid")
-                             }
-                             NavigationLink(destination: UIComponentDemoView()) {
-                                 Text("UIComponentDemo")
                              }
                          }.padding()
                      },

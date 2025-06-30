@@ -1,9 +1,9 @@
 //
 //  CustomViewContainer.swift
-//  SwiftUITester
+//  Gobang
 //
-//  Created by xattacker.tao on 2024/12/2.
-//  Copyright © 2024 TCCI MACKBOOK PRO. All rights reserved.
+//  Created by xattacker.tao on 2025/06/30.
+//  Copyright © 2025 xattacker. All rights reserved.
 //
 
 import SwiftUI

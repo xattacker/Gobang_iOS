@@ -1,16 +1,16 @@
 //
 //  AppDelegate.swift
-//  SwiftUITester
+//  Gobang
 //
-//  Created by xattacker.tao on 2019/10/9.
-//  Copyright © 2019 Xattacker. All rights reserved.
+//  Created by xattacker.tao on 2025/06/30.
+//  Copyright © 2025 Xattacker. All rights reserved.
 //
 
 import UIKit
 
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true

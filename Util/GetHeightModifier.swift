@@ -1,9 +1,9 @@
 //
 //  GetHeightModifier.swift
-//  SwiftUITester
+//  Gobang
 //
-//  Created by xattacker.tao on 2024/12/27.
-//  Copyright © 2024 Xattacker. All rights reserved.
+//  Created by xattacker.tao on 2025/06/30.
+//  Copyright © 2025 Xattacker. All rights reserved.
 //
 
 import SwiftUI
