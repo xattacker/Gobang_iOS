@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  MainBoardView.swift
 //  Gobang
 //
 //  Created by xattacker.tao on 2025/06/30.
@@ -9,8 +9,10 @@
 import SwiftUI
 
 
-struct MainView: View, CustomNavigationDisplayer
+struct MainBoardView: View, CustomNavigationDisplayer
 {
+    private let GRID_DIMENSION = 14
+    
     init() {
     }
     
@@ -28,21 +30,7 @@ struct MainView: View, CustomNavigationDisplayer
     {
         return .yellow
     }
-    
-//    var navigationTitleDisplayMode: NavigationBarItem.TitleDisplayMode
-//    {
-//        return .large
-//    }
-    
-    var navigationRightItems: [CustomNavigationItem]?
-    {
-        return [
-            CustomNavigationItem(style: .title(title: "action", color: .blue), action: {
-                print("action")
-            })
-        ]
-    }
-    
+
     var body: some View
     {
         return CustomViewContainer(

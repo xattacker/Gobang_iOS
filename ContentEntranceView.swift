@@ -44,16 +44,7 @@ struct ContentEntranceView: View, CustomNavigationDisplayer
     {
         // Provides NavigationController
          return NavigationView {
-                  // List inside the navigationController
-                 CustomViewContainer(
-                     content: {
-                         VStack(spacing: 20) {
-                             NavigationLink(destination: MainView()) {
-                                 Text("List")
-                             }
-                         }.padding()
-                     },
-                     navigationDisplayer: self)
+                  MainBoardView()
                 }
     }
 }

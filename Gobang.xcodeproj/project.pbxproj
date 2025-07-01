@@ -13,8 +13,6 @@
 		68E91B32234D816C000507AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E91B31234D816C000507AE /* Assets.xcassets */; };
 		68E91B35234D816C000507AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E91B34234D816C000507AE /* Preview Assets.xcassets */; };
 		68E91B38234D816C000507AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68E91B36234D816C000507AE /* LaunchScreen.storyboard */; };
-		C53B790B2D5739D000E306CA /* MultiPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53B790A2D5739D000E306CA /* MultiPickerButton.swift */; };
-		C53B790D2D5751B800E306CA /* MultiPickerSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53B790C2D5751B800E306CA /* MultiPickerSheetView.swift */; };
 		C55CA8C62E127AFC00E4DF3C /* GobangLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8C52E127AFC00E4DF3C /* GobangLogic.swift */; };
 		C55CA8C82E127B3200E4DF3C /* PlayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8C72E127B3200E4DF3C /* PlayerType.swift */; };
 		C55CA8CA2E127B9900E4DF3C /* GirdLogicAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8C92E127B9900E4DF3C /* GirdLogicAgent.swift */; };
@@ -23,13 +21,14 @@
 		C55CA8D02E12909600E4DF3C /* GridEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8CF2E12909600E4DF3C /* GridEdge.swift */; };
 		C55CA8D22E1290CF00E4DF3C /* GobangLogicListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8D12E1290CF00E4DF3C /* GobangLogicListener.swift */; };
 		C55CA8D42E1291A300E4DF3C /* GobangGridPaintAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8D32E1291A300E4DF3C /* GobangGridPaintAgent.swift */; };
-		C5A181302D38AE00007353B8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A1812F2D38ADFE007353B8 /* MainView.swift */; };
-		C5A567592D50592E004F1A06 /* PickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A567582D50592E004F1A06 /* PickerButton.swift */; };
-		C5A5675B2D505CF8004F1A06 /* PickerSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5675A2D505CF8004F1A06 /* PickerSheetView.swift */; };
+		C5A181302D38AE00007353B8 /* MainBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A1812F2D38ADFE007353B8 /* MainBoardView.swift */; };
 		C5A5675D2D5094E9004F1A06 /* SheetSelectionViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5675C2D5094E9004F1A06 /* SheetSelectionViewContainer.swift */; };
 		C5A5675F2D509FAE004F1A06 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5675E2D509FAE004F1A06 /* Color+Extension.swift */; };
 		C5A6433C2D1E82510038336D /* GetHeightModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A6433B2D1E82510038336D /* GetHeightModifier.swift */; };
 		C5A6433E2D1E85710038336D /* DynamicBottomSheetViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A6433D2D1E85710038336D /* DynamicBottomSheetViewContainer.swift */; };
+		C5D48DFB2E136EB5003BB920 /* ChessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D48DFA2E136EB5003BB920 /* ChessView.swift */; };
+		C5D48DFD2E136F71003BB920 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D48DFC2E136F71003BB920 /* GridView.swift */; };
+		C5D48DFF2E136FB0003BB920 /* ChessStyleMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D48DFE2E136FB0003BB920 /* ChessStyleMediator.swift */; };
 		C5DA0D452D40D0D700B61667 /* AlertHandleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DA0D442D40D0D100B61667 /* AlertHandleModifier.swift */; };
 		C5E0E9752CFD4EFB0049CF1B /* CustomViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E9742CFD4EFB0049CF1B /* CustomViewContainer.swift */; };
 /* End PBXBuildFile section */
@@ -43,8 +42,6 @@
 		68E91B34234D816C000507AE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		68E91B37234D816C000507AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68E91B39234D816C000507AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C53B790A2D5739D000E306CA /* MultiPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPickerButton.swift; sourceTree = "<group>"; };
-		C53B790C2D5751B800E306CA /* MultiPickerSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPickerSheetView.swift; sourceTree = "<group>"; };
 		C55CA8C52E127AFC00E4DF3C /* GobangLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangLogic.swift; sourceTree = "<group>"; };
 		C55CA8C72E127B3200E4DF3C /* PlayerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerType.swift; sourceTree = "<group>"; };
 		C55CA8C92E127B9900E4DF3C /* GirdLogicAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirdLogicAgent.swift; sourceTree = "<group>"; };
@@ -53,13 +50,14 @@
 		C55CA8CF2E12909600E4DF3C /* GridEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridEdge.swift; sourceTree = "<group>"; };
 		C55CA8D12E1290CF00E4DF3C /* GobangLogicListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangLogicListener.swift; sourceTree = "<group>"; };
 		C55CA8D32E1291A300E4DF3C /* GobangGridPaintAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangGridPaintAgent.swift; sourceTree = "<group>"; };
-		C5A1812F2D38ADFE007353B8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		C5A567582D50592E004F1A06 /* PickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerButton.swift; sourceTree = "<group>"; };
-		C5A5675A2D505CF8004F1A06 /* PickerSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerSheetView.swift; sourceTree = "<group>"; };
+		C5A1812F2D38ADFE007353B8 /* MainBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardView.swift; sourceTree = "<group>"; };
 		C5A5675C2D5094E9004F1A06 /* SheetSelectionViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetSelectionViewContainer.swift; sourceTree = "<group>"; };
 		C5A5675E2D509FAE004F1A06 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		C5A6433B2D1E82510038336D /* GetHeightModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHeightModifier.swift; sourceTree = "<group>"; };
 		C5A6433D2D1E85710038336D /* DynamicBottomSheetViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicBottomSheetViewContainer.swift; sourceTree = "<group>"; };
+		C5D48DFA2E136EB5003BB920 /* ChessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessView.swift; sourceTree = "<group>"; };
+		C5D48DFC2E136F71003BB920 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		C5D48DFE2E136FB0003BB920 /* ChessStyleMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessStyleMediator.swift; sourceTree = "<group>"; };
 		C5DA0D442D40D0D100B61667 /* AlertHandleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHandleModifier.swift; sourceTree = "<group>"; };
 		C5E0E9742CFD4EFB0049CF1B /* CustomViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,12 +77,12 @@
 			isa = PBXGroup;
 			children = (
 				C55CA8C42E127AD400E4DF3C /* Logic */,
-				C5A567572D50591C004F1A06 /* PickerButton */,
+				C5D48DF92E136CDE003BB920 /* View */,
 				C5A6433A2D1E7CD90038336D /* Util */,
 				68E91B2B234D816C000507AE /* AppDelegate.swift */,
 				68E91B2D234D816C000507AE /* SceneDelegate.swift */,
 				68E91B2F234D816C000507AE /* ContentEntranceView.swift */,
-				C5A1812F2D38ADFE007353B8 /* MainView.swift */,
+				C5A1812F2D38ADFE007353B8 /* MainBoardView.swift */,
 				68E91B31234D816C000507AE /* Assets.xcassets */,
 				68E91B36234D816C000507AE /* LaunchScreen.storyboard */,
 				68E91B39234D816C000507AE /* Info.plist */,
@@ -124,17 +122,6 @@
 			path = Logic;
 			sourceTree = "<group>";
 		};
-		C5A567572D50591C004F1A06 /* PickerButton */ = {
-			isa = PBXGroup;
-			children = (
-				C5A567582D50592E004F1A06 /* PickerButton.swift */,
-				C5A5675A2D505CF8004F1A06 /* PickerSheetView.swift */,
-				C53B790A2D5739D000E306CA /* MultiPickerButton.swift */,
-				C53B790C2D5751B800E306CA /* MultiPickerSheetView.swift */,
-			);
-			path = PickerButton;
-			sourceTree = "<group>";
-		};
 		C5A6433A2D1E7CD90038336D /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +133,16 @@
 				C5A6433D2D1E85710038336D /* DynamicBottomSheetViewContainer.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		C5D48DF92E136CDE003BB920 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C5D48DFA2E136EB5003BB920 /* ChessView.swift */,
+				C5D48DFC2E136F71003BB920 /* GridView.swift */,
+				C5D48DFE2E136FB0003BB920 /* ChessStyleMediator.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,9 +220,8 @@
 				C55CA8CE2E12904E00E4DF3C /* ConnectedDirection.swift in Sources */,
 				C55CA8C62E127AFC00E4DF3C /* GobangLogic.swift in Sources */,
 				C5DA0D452D40D0D700B61667 /* AlertHandleModifier.swift in Sources */,
-				C5A5675B2D505CF8004F1A06 /* PickerSheetView.swift in Sources */,
-				C5A181302D38AE00007353B8 /* MainView.swift in Sources */,
-				C5A567592D50592E004F1A06 /* PickerButton.swift in Sources */,
+				C5A181302D38AE00007353B8 /* MainBoardView.swift in Sources */,
+				C5D48DFB2E136EB5003BB920 /* ChessView.swift in Sources */,
 				68E91B2C234D816C000507AE /* AppDelegate.swift in Sources */,
 				68E91B2E234D816C000507AE /* SceneDelegate.swift in Sources */,
 				C55CA8CC2E127BF200E4DF3C /* GobangGrid.swift in Sources */,
@@ -235,11 +231,11 @@
 				68E91B30234D816C000507AE /* ContentEntranceView.swift in Sources */,
 				C55CA8C82E127B3200E4DF3C /* PlayerType.swift in Sources */,
 				C55CA8D22E1290CF00E4DF3C /* GobangLogicListener.swift in Sources */,
-				C53B790B2D5739D000E306CA /* MultiPickerButton.swift in Sources */,
 				C5A6433C2D1E82510038336D /* GetHeightModifier.swift in Sources */,
 				C5A5675D2D5094E9004F1A06 /* SheetSelectionViewContainer.swift in Sources */,
+				C5D48DFF2E136FB0003BB920 /* ChessStyleMediator.swift in Sources */,
 				C55CA8CA2E127B9900E4DF3C /* GirdLogicAgent.swift in Sources */,
-				C53B790D2D5751B800E306CA /* MultiPickerSheetView.swift in Sources */,
+				C5D48DFD2E136F71003BB920 /* GridView.swift in Sources */,
 				C5E0E9752CFD4EFB0049CF1B /* CustomViewContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

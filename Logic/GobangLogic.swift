@@ -73,24 +73,28 @@ class GobangLogic: GirdLogicAgent {
                         grid.setXY(x: i, y: j)
                         grid.setLogicAgent(self)
 
-                        var edge = GridEdge.center.rawValue
+                        var edge = GridEdge.center
 
                         if i == 0 {
-                            edge |= GridEdge.left.rawValue
-                        } else if i == gridDimension - 1 {
-                            edge |= GridEdge.right.rawValue
+                            edge.insert(GridEdge.left)
+                        }
+                        else if i == gridDimension - 1 {
+                            edge.insert(GridEdge.right)
                         }
 
                         if j == 0 {
-                            edge |= GridEdge.top.rawValue
-                        } else if j == gridDimension - 1 {
-                            edge |= GridEdge.bottom.rawValue
+                            edge.insert(GridEdge.top)
+                        }
+                        else if j == gridDimension - 1
+                        {
+                            edge.insert(GridEdge.bottom)
                         }
 
                         grid.edge = edge
                         grids[i][j] = grid
                     }
                 }
+                
                 grids[i][j]?.initial()
             }
         }
@@ -141,13 +145,19 @@ class GobangLogic: GirdLogicAgent {
             y -= offsetY
         }
 
-        if steps.count >= 5 {
+        if steps.count >= 5
+        {
             over = true
-            steps.forEach { step in
+            
+            steps.forEach {
+                step in
                 grids[step[0]][step[1]]?.connectedDirection = direction
             }
+            
             delegate?.onPlayerWon(winner: check)
-        } else {
+        }
+        else
+        {
             direction = direction.next()
             if direction != .nilDirection {
                 winCheck2()
@@ -164,20 +174,32 @@ class GobangLogic: GirdLogicAgent {
     func gobangAI() {
         var play = true
 
-        for _ in (1...2).reversed() {
+        for _ in (1...2).reversed()
+        {
             play.toggle()
             gobangAI4(player: play)
-            if turn == .player { return }
+            
+            if turn == .player
+            {
+                return
+            }
         }
 
-        for i in (4...7).reversed() {
+        for i in (4...7).reversed()
+        {
             play.toggle()
+            
             step = i / 2
             gobangAI2(player: play)
-            if turn == .player { return }
+            
+            if turn == .player
+            {
+                return
+            }
         }
 
         gobangAI5()
+        
         if turn != .player {
             gobangRandom()
         }
@@ -195,7 +217,10 @@ class GobangLogic: GirdLogicAgent {
                 offsetY += 1
                 checkDirections[offsetX] = true
             }
-        } while (!x.inBounds(0..<gridDimension) || !y.inBounds(0..<gridDimension) || grids[x][y]?.type != PlayerType.none) && offsetY < 8
+        } while (!x.inBounds(0..<gridDimension) ||
+                !y.inBounds(0..<gridDimension) ||
+                grids[x][y]?.type != PlayerType.none) &&
+                offsetY < 8
 
         checkDirections = [Bool](repeating: false, count: 8)
 

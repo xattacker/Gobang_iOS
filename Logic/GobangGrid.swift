@@ -15,7 +15,7 @@ final class GobangGrid {
     private(set) var x: Int = 0
     private(set) var y: Int = 0
 
-    internal var edge: Int = 0
+    internal var edge: GridEdge = .center
 
     private weak var logicAgent: GirdLogicAgent?
 
