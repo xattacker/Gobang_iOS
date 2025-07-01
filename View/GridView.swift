@@ -8,10 +8,12 @@
 
 import SwiftUI
 
+
 struct GridView: View {
     let grid: GobangGrid
     let mediator: ChessStyleMediator
     let onTap: () -> Void
+    
     var isSelected: Bool = false
 
     var body: some View {
@@ -56,14 +58,17 @@ struct GridView: View {
                         path.move(to: .zero)
                         path.addLine(to: CGPoint(x: size, y: 0))
                     }
+                    
                     if grid.edge.contains(.bottom) {
                         path.move(to: CGPoint(x: 0, y: size))
                         path.addLine(to: CGPoint(x: size, y: size))
                     }
+                    
                     if grid.edge.contains(.left) {
                         path.move(to: .zero)
                         path.addLine(to: CGPoint(x: 0, y: size))
                     }
+                    
                     if grid.edge.contains(.right) {
                         path.move(to: CGPoint(x: size, y: 0))
                         path.addLine(to: CGPoint(x: size, y: size))
@@ -85,18 +90,22 @@ struct GridView: View {
                             case .lt_rb:
                                 path.move(to: CGPoint(x: -edgeOffset, y: -edgeOffset))
                                 path.addLine(to: CGPoint(x: size + edgeOffset * 2, y: size + edgeOffset * 2))
+                                break
                             
                             case .rt_lb:
                                 path.move(to: CGPoint(x: size, y: -edgeOffset))
                                 path.addLine(to: CGPoint(x: -edgeOffset, y: size))
+                                break
                             
                             case .horizontal:
                                 path.move(to: CGPoint(x: middle, y: -edgeOffset))
                                 path.addLine(to: CGPoint(x: middle, y: size))
+                                break
                             
                             case .vertical:
                                 path.move(to: CGPoint(x: -edgeOffset, y: middle))
                                 path.addLine(to: CGPoint(x: size, y: middle))
+                                break
                             
                             default:
                                 break

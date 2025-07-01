@@ -9,6 +9,6 @@
 import Foundation
 
 
-protocol GobangGridPaintAgent: AnyObject {
+protocol GobangGridPaintAgent {
     func onPaint(grid: GobangGrid)
 }

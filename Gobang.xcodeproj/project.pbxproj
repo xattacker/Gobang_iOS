@@ -19,7 +19,7 @@
 		C55CA8CC2E127BF200E4DF3C /* GobangGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8CB2E127BF200E4DF3C /* GobangGrid.swift */; };
 		C55CA8CE2E12904E00E4DF3C /* ConnectedDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8CD2E12904E00E4DF3C /* ConnectedDirection.swift */; };
 		C55CA8D02E12909600E4DF3C /* GridEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8CF2E12909600E4DF3C /* GridEdge.swift */; };
-		C55CA8D22E1290CF00E4DF3C /* GobangLogicListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8D12E1290CF00E4DF3C /* GobangLogicListener.swift */; };
+		C55CA8D22E1290CF00E4DF3C /* GobangLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8D12E1290CF00E4DF3C /* GobangLogicDelegate.swift */; };
 		C55CA8D42E1291A300E4DF3C /* GobangGridPaintAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8D32E1291A300E4DF3C /* GobangGridPaintAgent.swift */; };
 		C5A181302D38AE00007353B8 /* MainBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A1812F2D38ADFE007353B8 /* MainBoardView.swift */; };
 		C5A5675D2D5094E9004F1A06 /* SheetSelectionViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5675C2D5094E9004F1A06 /* SheetSelectionViewContainer.swift */; };
@@ -29,6 +29,8 @@
 		C5D48DFB2E136EB5003BB920 /* ChessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D48DFA2E136EB5003BB920 /* ChessView.swift */; };
 		C5D48DFD2E136F71003BB920 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D48DFC2E136F71003BB920 /* GridView.swift */; };
 		C5D48DFF2E136FB0003BB920 /* ChessStyleMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D48DFE2E136FB0003BB920 /* ChessStyleMediator.swift */; };
+		C5D48E022E137E03003BB920 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = C5D48E012E137E03003BB920 /* ComposableArchitecture */; };
+		C5D48E052E13AC63003BB920 /* GobangViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D48E042E13AC63003BB920 /* GobangViewModel.swift */; };
 		C5DA0D452D40D0D700B61667 /* AlertHandleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DA0D442D40D0D100B61667 /* AlertHandleModifier.swift */; };
 		C5E0E9752CFD4EFB0049CF1B /* CustomViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E0E9742CFD4EFB0049CF1B /* CustomViewContainer.swift */; };
 /* End PBXBuildFile section */
@@ -48,7 +50,7 @@
 		C55CA8CB2E127BF200E4DF3C /* GobangGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangGrid.swift; sourceTree = "<group>"; };
 		C55CA8CD2E12904E00E4DF3C /* ConnectedDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedDirection.swift; sourceTree = "<group>"; };
 		C55CA8CF2E12909600E4DF3C /* GridEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridEdge.swift; sourceTree = "<group>"; };
-		C55CA8D12E1290CF00E4DF3C /* GobangLogicListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangLogicListener.swift; sourceTree = "<group>"; };
+		C55CA8D12E1290CF00E4DF3C /* GobangLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangLogicDelegate.swift; sourceTree = "<group>"; };
 		C55CA8D32E1291A300E4DF3C /* GobangGridPaintAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangGridPaintAgent.swift; sourceTree = "<group>"; };
 		C5A1812F2D38ADFE007353B8 /* MainBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardView.swift; sourceTree = "<group>"; };
 		C5A5675C2D5094E9004F1A06 /* SheetSelectionViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetSelectionViewContainer.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		C5D48DFA2E136EB5003BB920 /* ChessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessView.swift; sourceTree = "<group>"; };
 		C5D48DFC2E136F71003BB920 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		C5D48DFE2E136FB0003BB920 /* ChessStyleMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessStyleMediator.swift; sourceTree = "<group>"; };
+		C5D48E042E13AC63003BB920 /* GobangViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangViewModel.swift; sourceTree = "<group>"; };
 		C5DA0D442D40D0D100B61667 /* AlertHandleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHandleModifier.swift; sourceTree = "<group>"; };
 		C5E0E9742CFD4EFB0049CF1B /* CustomViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5D48E022E137E03003BB920 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +87,7 @@
 				68E91B2D234D816C000507AE /* SceneDelegate.swift */,
 				68E91B2F234D816C000507AE /* ContentEntranceView.swift */,
 				C5A1812F2D38ADFE007353B8 /* MainBoardView.swift */,
+				C5D48E042E13AC63003BB920 /* GobangViewModel.swift */,
 				68E91B31234D816C000507AE /* Assets.xcassets */,
 				68E91B36234D816C000507AE /* LaunchScreen.storyboard */,
 				68E91B39234D816C000507AE /* Info.plist */,
@@ -117,7 +122,7 @@
 				C55CA8D32E1291A300E4DF3C /* GobangGridPaintAgent.swift */,
 				C55CA8C92E127B9900E4DF3C /* GirdLogicAgent.swift */,
 				C55CA8C52E127AFC00E4DF3C /* GobangLogic.swift */,
-				C55CA8D12E1290CF00E4DF3C /* GobangLogicListener.swift */,
+				C55CA8D12E1290CF00E4DF3C /* GobangLogicDelegate.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -189,6 +194,9 @@
 				Base,
 			);
 			mainGroup = 68E91B1F234D816C000507AE;
+			packageReferences = (
+				C5D48E002E137E03003BB920 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 68E91B29234D816C000507AE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -228,9 +236,10 @@
 				C5A6433E2D1E85710038336D /* DynamicBottomSheetViewContainer.swift in Sources */,
 				C5A5675F2D509FAE004F1A06 /* Color+Extension.swift in Sources */,
 				C55CA8D42E1291A300E4DF3C /* GobangGridPaintAgent.swift in Sources */,
+				C5D48E052E13AC63003BB920 /* GobangViewModel.swift in Sources */,
 				68E91B30234D816C000507AE /* ContentEntranceView.swift in Sources */,
 				C55CA8C82E127B3200E4DF3C /* PlayerType.swift in Sources */,
-				C55CA8D22E1290CF00E4DF3C /* GobangLogicListener.swift in Sources */,
+				C55CA8D22E1290CF00E4DF3C /* GobangLogicDelegate.swift in Sources */,
 				C5A6433C2D1E82510038336D /* GetHeightModifier.swift in Sources */,
 				C5A5675D2D5094E9004F1A06 /* SheetSelectionViewContainer.swift in Sources */,
 				C5D48DFF2E136FB0003BB920 /* ChessStyleMediator.swift in Sources */,
@@ -434,6 +443,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C5D48E002E137E03003BB920 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.20.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C5D48E012E137E03003BB920 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5D48E002E137E03003BB920 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 68E91B20234D816C000507AE /* Project object */;
 }
