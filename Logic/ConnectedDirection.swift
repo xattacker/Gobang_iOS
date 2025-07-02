@@ -25,16 +25,14 @@ enum ConnectedDirection: Int, CaseIterable {
 
     func offset() -> (x: Int, y: Int) {
         switch self {
-        case .lt_rb:
-            return (1, 1)
-        case .rt_lb:
-            return (1, -1)
-        case .horizontal:
-            return (0, 1)
-        case .vertical:
-            return (1, 0)
-        default:
-            return (0, 0)
+            case .lt_rb:
+                return (1, 1)
+            case .rt_lb:
+                return (1, -1)
+            case .horizontal:
+                return (0, 1)
+            case .vertical:
+                return (1, 0)
         }
     }
 

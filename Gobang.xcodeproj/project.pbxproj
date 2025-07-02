@@ -22,7 +22,6 @@
 		C55CA8D22E1290CF00E4DF3C /* GobangLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8D12E1290CF00E4DF3C /* GobangLogicDelegate.swift */; };
 		C5A181302D38AE00007353B8 /* MainBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A1812F2D38ADFE007353B8 /* MainBoardView.swift */; };
 		C5A5675F2D509FAE004F1A06 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5675E2D509FAE004F1A06 /* Color+Extension.swift */; };
-		C5A6433C2D1E82510038336D /* GetHeightModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A6433B2D1E82510038336D /* GetHeightModifier.swift */; };
 		C5D48DFB2E136EB5003BB920 /* ChessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D48DFA2E136EB5003BB920 /* ChessView.swift */; };
 		C5D48DFD2E136F71003BB920 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D48DFC2E136F71003BB920 /* GridView.swift */; };
 		C5D48DFF2E136FB0003BB920 /* ChessStyleMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D48DFE2E136FB0003BB920 /* ChessStyleMediator.swift */; };
@@ -52,7 +51,6 @@
 		C55CA8D12E1290CF00E4DF3C /* GobangLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangLogicDelegate.swift; sourceTree = "<group>"; };
 		C5A1812F2D38ADFE007353B8 /* MainBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardView.swift; sourceTree = "<group>"; };
 		C5A5675E2D509FAE004F1A06 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		C5A6433B2D1E82510038336D /* GetHeightModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHeightModifier.swift; sourceTree = "<group>"; };
 		C5D48DFA2E136EB5003BB920 /* ChessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessView.swift; sourceTree = "<group>"; };
 		C5D48DFC2E136F71003BB920 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		C5D48DFE2E136FB0003BB920 /* ChessStyleMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessStyleMediator.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				C5A5675E2D509FAE004F1A06 /* Color+Extension.swift */,
 				C5E64D4A2E1519D9006A18C2 /* String+Extension.swift */,
 				C5DA0D442D40D0D100B61667 /* AlertHandleModifier.swift */,
-				C5A6433B2D1E82510038336D /* GetHeightModifier.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -247,7 +244,6 @@
 				68E91B30234D816C000507AE /* ContentEntranceView.swift in Sources */,
 				C55CA8C82E127B3200E4DF3C /* PlayerType.swift in Sources */,
 				C55CA8D22E1290CF00E4DF3C /* GobangLogicDelegate.swift in Sources */,
-				C5A6433C2D1E82510038336D /* GetHeightModifier.swift in Sources */,
 				C5D48DFF2E136FB0003BB920 /* ChessStyleMediator.swift in Sources */,
 				C55CA8CA2E127B9900E4DF3C /* GirdLogicAgent.swift in Sources */,
 				C5D48DFD2E136F71003BB920 /* GridView.swift in Sources */,

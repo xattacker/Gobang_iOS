@@ -49,7 +49,6 @@ struct MainBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelD
     {
         return ZStack {
                     VStack(spacing: 0) {
-                        // 中區塊（填滿剩餘空間）
                         VStack(spacing: 0) {
                             VStack(spacing: 0) {
                                 ForEach(0 ..< GRID_DIMENSION) {
@@ -67,7 +66,18 @@ struct MainBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelD
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(Color.white)
                     }
-                
+            
+                    VStack {
+                         Spacer()
+                         HStack {
+                              Spacer()
+                              Text(String(format: "v %@", self.appVersion))
+                              .foregroundColor(.darkGray)
+                              .font(.caption)
+                              .padding()
+                         }
+                    }
+            
                     if self.gameStatus == .chessSelection {
                         Color.black.opacity(0.4)
                             .edgesIgnoringSafeArea(.all)
@@ -105,5 +115,11 @@ struct MainBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelD
     
     func onCreateGrid(x: Int, y: Int) -> GobangGrid? {
         return self.grids[x][y]
+    }
+    
+    private var appVersion: String
+    {
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+        return version ?? ""
     }
 }
