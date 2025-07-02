@@ -1,5 +1,5 @@
 //
-//  MainBoardView.swift
+//  ChessBoardView.swift
 //  Gobang
 //
 //  Created by xattacker.tao on 2025/06/30.
@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-struct MainBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelDelegate
+struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelDelegate
 {
     private let GRID_DIMENSION = 14
     
@@ -20,6 +20,8 @@ struct MainBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelD
         case chessSelection = 0
         // 下子中
         case chessing = 1
+        // 結束
+        case over = 2
         
         var id: String { String(self.rawValue) }
     }
@@ -57,6 +59,8 @@ struct MainBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelD
                                         ForEach(0 ..< GRID_DIMENSION) {
                                             x in
                                             GridView(grid: grids[x][y], mediator: self) {
+                                                view in
+                                                viewModel.updateSelectedGridView(view)
                                             }.aspectRatio(1, contentMode: .fit)
                                         }
                                     }
@@ -64,8 +68,7 @@ struct MainBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelD
                             }.background(Color("board_background"))
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color.white)
-                    }
+                    }.allowsHitTesting(self.gameStatus == .chessing)
             
                     VStack {
                          Spacer()
@@ -115,6 +118,18 @@ struct MainBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelD
     
     func onCreateGrid(x: Int, y: Int) -> GobangGrid? {
         return self.grids[x][y]
+    }
+    
+    func onPlayerWon(winner: PlayerType)
+    {
+        self.gameStatus = .over
+        
+        Task {
+            try? await Task.sleep(nanoseconds: 35 * 100_000_000) // 3.5 秒
+            
+            self.gameStatus = .chessing
+            self.viewModel.restart()
+        }
     }
     
     private var appVersion: String

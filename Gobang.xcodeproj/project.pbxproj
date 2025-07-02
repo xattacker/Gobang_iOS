@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		68E91B2C234D816C000507AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E91B2B234D816C000507AE /* AppDelegate.swift */; };
 		68E91B2E234D816C000507AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E91B2D234D816C000507AE /* SceneDelegate.swift */; };
-		68E91B30234D816C000507AE /* ContentEntranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E91B2F234D816C000507AE /* ContentEntranceView.swift */; };
 		68E91B32234D816C000507AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E91B31234D816C000507AE /* Assets.xcassets */; };
 		68E91B35234D816C000507AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E91B34234D816C000507AE /* Preview Assets.xcassets */; };
 		68E91B38234D816C000507AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68E91B36234D816C000507AE /* LaunchScreen.storyboard */; };
@@ -20,7 +19,7 @@
 		C55CA8CE2E12904E00E4DF3C /* ConnectedDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8CD2E12904E00E4DF3C /* ConnectedDirection.swift */; };
 		C55CA8D02E12909600E4DF3C /* GridEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8CF2E12909600E4DF3C /* GridEdge.swift */; };
 		C55CA8D22E1290CF00E4DF3C /* GobangLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8D12E1290CF00E4DF3C /* GobangLogicDelegate.swift */; };
-		C5A181302D38AE00007353B8 /* MainBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A1812F2D38ADFE007353B8 /* MainBoardView.swift */; };
+		C5A181302D38AE00007353B8 /* ChessBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A1812F2D38ADFE007353B8 /* ChessBoardView.swift */; };
 		C5A5675F2D509FAE004F1A06 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5675E2D509FAE004F1A06 /* Color+Extension.swift */; };
 		C5D48DFB2E136EB5003BB920 /* ChessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D48DFA2E136EB5003BB920 /* ChessView.swift */; };
 		C5D48DFD2E136F71003BB920 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D48DFC2E136F71003BB920 /* GridView.swift */; };
@@ -31,13 +30,13 @@
 		C5E64D462E15133D006A18C2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C5E64D452E15133D006A18C2 /* Localizable.xcstrings */; };
 		C5E64D492E151805006A18C2 /* ChessSelectionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E64D482E151805006A18C2 /* ChessSelectionDialog.swift */; };
 		C5E64D4B2E1519D9006A18C2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E64D4A2E1519D9006A18C2 /* String+Extension.swift */; };
+		C5E64D4D2E1531DF006A18C2 /* GradeRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E64D4C2E1531DF006A18C2 /* GradeRecorder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		68E91B28234D816C000507AE /* Gobang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gobang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68E91B2B234D816C000507AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68E91B2D234D816C000507AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		68E91B2F234D816C000507AE /* ContentEntranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentEntranceView.swift; sourceTree = "<group>"; };
 		68E91B31234D816C000507AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68E91B34234D816C000507AE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		68E91B37234D816C000507AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,7 +48,7 @@
 		C55CA8CD2E12904E00E4DF3C /* ConnectedDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedDirection.swift; sourceTree = "<group>"; };
 		C55CA8CF2E12909600E4DF3C /* GridEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridEdge.swift; sourceTree = "<group>"; };
 		C55CA8D12E1290CF00E4DF3C /* GobangLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangLogicDelegate.swift; sourceTree = "<group>"; };
-		C5A1812F2D38ADFE007353B8 /* MainBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardView.swift; sourceTree = "<group>"; };
+		C5A1812F2D38ADFE007353B8 /* ChessBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessBoardView.swift; sourceTree = "<group>"; };
 		C5A5675E2D509FAE004F1A06 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		C5D48DFA2E136EB5003BB920 /* ChessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessView.swift; sourceTree = "<group>"; };
 		C5D48DFC2E136F71003BB920 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		C5E64D452E15133D006A18C2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		C5E64D482E151805006A18C2 /* ChessSelectionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessSelectionDialog.swift; sourceTree = "<group>"; };
 		C5E64D4A2E1519D9006A18C2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		C5E64D4C2E1531DF006A18C2 /* GradeRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeRecorder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +81,10 @@
 				C5A6433A2D1E7CD90038336D /* Util */,
 				68E91B2B234D816C000507AE /* AppDelegate.swift */,
 				68E91B2D234D816C000507AE /* SceneDelegate.swift */,
-				68E91B2F234D816C000507AE /* ContentEntranceView.swift */,
-				C5A1812F2D38ADFE007353B8 /* MainBoardView.swift */,
+				C5A1812F2D38ADFE007353B8 /* ChessBoardView.swift */,
 				C5E64D482E151805006A18C2 /* ChessSelectionDialog.swift */,
 				C5D48E042E13AC63003BB920 /* GobangViewModel.swift */,
+				C5E64D4C2E1531DF006A18C2 /* GradeRecorder.swift */,
 				C5E64D472E151345006A18C2 /* Resource */,
 				68E91B36234D816C000507AE /* LaunchScreen.storyboard */,
 				68E91B39234D816C000507AE /* Info.plist */,
@@ -232,7 +232,8 @@
 				C55CA8CE2E12904E00E4DF3C /* ConnectedDirection.swift in Sources */,
 				C55CA8C62E127AFC00E4DF3C /* GobangLogic.swift in Sources */,
 				C5DA0D452D40D0D700B61667 /* AlertHandleModifier.swift in Sources */,
-				C5A181302D38AE00007353B8 /* MainBoardView.swift in Sources */,
+				C5A181302D38AE00007353B8 /* ChessBoardView.swift in Sources */,
+				C5E64D4D2E1531DF006A18C2 /* GradeRecorder.swift in Sources */,
 				C5D48DFB2E136EB5003BB920 /* ChessView.swift in Sources */,
 				68E91B2C234D816C000507AE /* AppDelegate.swift in Sources */,
 				68E91B2E234D816C000507AE /* SceneDelegate.swift in Sources */,
@@ -241,7 +242,6 @@
 				C5A5675F2D509FAE004F1A06 /* Color+Extension.swift in Sources */,
 				C5E64D4B2E1519D9006A18C2 /* String+Extension.swift in Sources */,
 				C5D48E052E13AC63003BB920 /* GobangViewModel.swift in Sources */,
-				68E91B30234D816C000507AE /* ContentEntranceView.swift in Sources */,
 				C55CA8C82E127B3200E4DF3C /* PlayerType.swift in Sources */,
 				C55CA8D22E1290CF00E4DF3C /* GobangLogicDelegate.swift in Sources */,
 				C5D48DFF2E136FB0003BB920 /* ChessStyleMediator.swift in Sources */,

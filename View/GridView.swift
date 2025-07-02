@@ -12,9 +12,9 @@ import SwiftUI
 struct GridView: View {
     @ObservedObject var grid: GobangGrid
     let mediator: ChessStyleMediator
-    let onTap: () -> Void
+    let onTap: (_ view: GridView) -> Void
     
-    @State var isSelected: Bool = false
+    @State var selected: Bool = false
 
     var body: some View {
         GeometryReader {
@@ -25,7 +25,7 @@ struct GridView: View {
 
             ZStack {
                 // ✅ 綠色選取背景
-                if isSelected {
+                if selected {
                     Rectangle()
                         .fill(Color.green)
                         .frame(width: size, height: size)
@@ -117,7 +117,7 @@ struct GridView: View {
             .onTapGesture {
                 if grid.type == .none {
                     grid.type = .player
-                    onTap()
+                    onTap(self)
                 }
             }
         }

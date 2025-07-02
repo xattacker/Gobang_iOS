@@ -13,13 +13,18 @@ import SwiftUI
 protocol GobangViewModelDelegate
 {
     func onCreateGrid(x: Int, y: Int) -> GobangGrid?
+    func onPlayerWon(winner: PlayerType)
 }
 
 
 final class GobangViewModel
 {
+    private var selectedGridView: GridView?
+    
     private var logic: GobangLogic!
     private var delegate: GobangViewModelDelegate?
+    
+    private var recorder = GradeRecorder()
 
     init(gridDimension: Int, delegate: GobangViewModelDelegate)
     {
@@ -27,6 +32,15 @@ final class GobangViewModel
         
         self.logic = GobangLogic(delegate: self, dimension: gridDimension)
         self.logic.restart()
+    }
+    
+    @MainActor
+    func updateSelectedGridView(_ gridView: GridView)
+    {
+        self.selectedGridView?.selected = false
+        
+        gridView.selected = true
+        self.selectedGridView = gridView
     }
     
     func restart()
@@ -51,5 +65,20 @@ extension GobangViewModel: GobangLogicDelegate
     
     func onPlayerWon(winner: PlayerType)
     {
+        switch winner {
+            case .computer:
+                self.recorder.addLose()
+                break
+            
+            case .player:
+                self.recorder.addWin()
+                break
+            
+            default:
+                break
+        }
+        
+        // by pass to delegate
+        self.delegate?.onPlayerWon(winner: winner)
     }
 }
