@@ -14,14 +14,15 @@ enum ConnectedDirection: Int, CaseIterable {
     case rt_lb = 1       // 右上 → 左下
     case horizontal = 2  // 橫向
     case vertical = 3    // 直向
-    case nilDirection = 4
+    
+    case unknown = 4
 
     var value: Int {
         return self.rawValue
     }
 
     func next() -> ConnectedDirection {
-        return ConnectedDirection(rawValue: self.rawValue + 1) ?? .nilDirection
+        return ConnectedDirection(rawValue: self.rawValue + 1) ?? .unknown
     }
 
     func offset() -> (x: Int, y: Int) {
@@ -40,6 +41,6 @@ enum ConnectedDirection: Int, CaseIterable {
     }
 
     static func parse(_ value: Int) -> ConnectedDirection {
-        return ConnectedDirection(rawValue: value) ?? .nilDirection
+        return ConnectedDirection(rawValue: value) ?? .unknown
     }
 }

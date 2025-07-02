@@ -10,14 +10,15 @@ import SwiftUI
 
 
 struct GridView: View {
-    let grid: GobangGrid
+    @ObservedObject var grid: GobangGrid
     let mediator: ChessStyleMediator
     let onTap: () -> Void
     
-    var isSelected: Bool = false
+    @State var isSelected: Bool = false
 
     var body: some View {
-        GeometryReader { geometry in
+        GeometryReader {
+            geometry in
             let size = geometry.size.width
             let middle = size / 2
             let edgeOffset = size / 20
@@ -83,7 +84,7 @@ struct GridView: View {
                 }
 
                 // ✅ 勝利連線標記
-                if let dir = grid.connectedDirection, dir != .nilDirection {
+                if let dir = grid.connectedDirection, dir != .unknown {
                     Path {
                         path in
                         switch dir {

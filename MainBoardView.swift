@@ -9,18 +9,19 @@
 import SwiftUI
 
 
-struct MainBoardView: View, ChessStyleMediator, GobangGridPaintAgent, @preconcurrency GobangViewModelDelegate
+struct MainBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelDelegate
 {
     private let GRID_DIMENSION = 14
     
     private var grids = Array<Array<GobangGrid>>()
-    @State private var viewModel: GobangViewModel!
+    private var viewModel: GobangViewModel!
+    @State private var refreshKey = UUID()
     
     init() {
         for _ in 0 ..< GRID_DIMENSION {
             var subs = Array<GobangGrid>()
             for _ in 0 ..< GRID_DIMENSION {
-                let grid = GobangGrid(paintAgent: self)
+                let grid = GobangGrid()
                 subs.append(grid)
             }
             
@@ -33,12 +34,6 @@ struct MainBoardView: View, ChessStyleMediator, GobangGridPaintAgent, @preconcur
     var body: some View
     {
         return VStack(spacing: 0) {
-                // 上區塊（固定高度）
-                Text("🔝 上區")
-                    .frame(height: 100)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.white)
-
                 // 中區塊（填滿剩餘空間）
                 VStack(spacing: 0) {
                     VStack(spacing: 0) {
@@ -48,7 +43,6 @@ struct MainBoardView: View, ChessStyleMediator, GobangGridPaintAgent, @preconcur
                                 ForEach(0 ..< GRID_DIMENSION) {
                                     x in
                                     GridView(grid: grids[x][y], mediator: self) {
-                                        print("onTap")
                                     }.aspectRatio(1, contentMode: .fit)
                                 }
                             }
@@ -57,17 +51,8 @@ struct MainBoardView: View, ChessStyleMediator, GobangGridPaintAgent, @preconcur
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.white)
-
-                // 下區塊（固定高度）
-                Text("🔻 下區")
-                    .frame(height: 80)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.white)
-            }
-    }
-    
-    nonisolated func onPaint(grid: GobangGrid)
-    {
+            
+              }.background(Color.white)
     }
     
     nonisolated func getChessColor(type: PlayerType) -> Color

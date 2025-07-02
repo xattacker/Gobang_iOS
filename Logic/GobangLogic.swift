@@ -27,7 +27,7 @@ class GobangLogic: GirdLogicAgent {
     private var offsetX: Int = 0
     private var offsetY: Int = 0
 
-    private var direction: ConnectedDirection = .nilDirection
+    private var direction: ConnectedDirection = .unknown
     private var histories: [GobangGrid] = []
     private var check: PlayerType = .none
     private var checkDirections = [Bool](repeating: false, count: 8)
@@ -71,8 +71,8 @@ class GobangLogic: GirdLogicAgent {
                 if grids[i][j] == nil {
                     if let grid = delegate?.createGrid(x: i, y: j) {
                         grid.setXY(x: i, y: j)
-                        grid.setLogicAgent(self)
-
+                        grid.logicAgent = self
+                        
                         var edge = GridEdge.center
 
                         if i == 0 {
@@ -159,7 +159,8 @@ class GobangLogic: GirdLogicAgent {
         else
         {
             direction = direction.next()
-            if direction != .nilDirection {
+            
+            if direction != .unknown {
                 winCheck2()
             }
         }
@@ -341,7 +342,7 @@ class GobangLogic: GirdLogicAgent {
 
         if count >= 4 {
             setAIMark(x: locX, y: locY)
-        } else if direction != .nilDirection {
+        } else if direction != .unknown {
             gobangAI4()
         }
     }
@@ -402,12 +403,12 @@ class GobangLogic: GirdLogicAgent {
             {
                 setAIMark(x: locX + offsetX, y: locY + offsetY)
             }
-            else if direction != .nilDirection
+            else if direction != .unknown
             {
                 gobangAI5_2()
             }
         }
-        else if direction != .nilDirection
+        else if direction != .unknown
         {
             gobangAI5_2()
         }
