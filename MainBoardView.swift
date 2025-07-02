@@ -13,12 +13,23 @@ struct MainBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelD
 {
     private let GRID_DIMENSION = 14
     
+    private enum GameStatus: Int, Identifiable
+    {
+        case unknown = -1
+        // 選子
+        case chessSelection = 0
+        // 下子中
+        case chessing = 1
+        
+        var id: String { String(self.rawValue) }
+    }
+    
     private var grids = Array<Array<GobangGrid>>()
     private var viewModel: GobangViewModel!
     @State private var refreshKey = UUID()
     
-    @State private var showChessSelectionDialog = false
-    @State private var selectedColor: ChessColor?
+    @State private var gameStatus: GameStatus = .unknown
+    @State private var selectedChessType: ChessSelectionType?
     
     init() {
         for _ in 0 ..< GRID_DIMENSION {
@@ -57,21 +68,25 @@ struct MainBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelD
                         .background(Color.white)
                     }
                 
-                    if showChessSelectionDialog {
+                    if self.gameStatus == .chessSelection {
                         Color.black.opacity(0.4)
                             .edgesIgnoringSafeArea(.all)
                         
-                        ChessSelectionDialog(isPresented: $showChessSelectionDialog, selectedColor: $selectedColor)
+                        ChessSelectionDialog {
+                            type in
+                            self.selectedChessType = type
+                            self.gameStatus = .chessing
+                        }
                     }
             }.background(Color.white)
             .onAppear {
-                self.showChessSelectionDialog = true
+                self.gameStatus = .chessSelection
             }
     }
     
     func getChessColor(type: PlayerType) -> Color
     {
-        guard let color = self.selectedColor else
+        guard let color = self.selectedChessType else
         {
             return .clear
         }

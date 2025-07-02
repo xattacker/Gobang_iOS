@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-enum ChessColor: String, CaseIterable, Identifiable {
+enum ChessSelectionType: String, CaseIterable, Identifiable {
     case black = "BLACK_CHESS"
     case white = "WHITE_CHESS"
     
@@ -25,20 +25,19 @@ enum ChessColor: String, CaseIterable, Identifiable {
         }
     }
     
-    var theOther: ChessColor
+    var theOther: ChessSelectionType
     {
         switch self {
             case .black:
-                return ChessColor.white
+                return ChessSelectionType.white
             case .white:
-                return ChessColor.black
+                return ChessSelectionType.black
         }
     }
 }
 
 struct ChessSelectionDialog: View {
-    @Binding var isPresented: Bool
-    @Binding var selectedColor: ChessColor?
+    let onSelected: (_ type: ChessSelectionType) -> Void
     
     var body: some View {
         VStack(spacing: 16) {
@@ -52,16 +51,15 @@ struct ChessSelectionDialog: View {
             Divider()
             
             // 單選選項
-            ForEach(ChessColor.allCases) {
-                color in
+            ForEach(ChessSelectionType.allCases) {
+                type in
                 Button {
-                    selectedColor = color
-                    isPresented = false
+                    onSelected(type)
                 } label: {
                     HStack {
-                        ChessView(chessColor: color.displayColor)
+                        ChessView(chessColor: type.displayColor)
                             .frame(width: 24, height: 24)
-                        Text(color.name)
+                        Text(type.name)
                             .foregroundColor(.primary)
                         Spacer()
                     }
