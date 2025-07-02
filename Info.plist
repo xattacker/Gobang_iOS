@@ -20,6 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>我們需要使用您的位置來顯示相關內容。</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>我們需要使用您的位置來顯示相關內容。</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>我們需要使用您的位置來顯示相關內容。</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -39,12 +45,6 @@
 	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>我們需要使用您的位置來顯示相關內容。</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>我們需要使用您的位置來顯示相關內容。</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>我們需要使用您的位置來顯示相關內容。</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

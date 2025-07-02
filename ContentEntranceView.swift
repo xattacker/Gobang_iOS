@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-struct ContentEntranceView: View, CustomNavigationDisplayer
+struct ContentEntranceView: View
 {
     init() {
         // 设置 NavigationBar 全局样式
@@ -28,16 +28,6 @@ struct ContentEntranceView: View, CustomNavigationDisplayer
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
         
         UINavigationBar.appearance().tintColor = .black
-    }
-    
-    var showNavigationBar: Bool
-    {
-        return false
-    }
-    
-    var showNavigationBack: Bool
-    {
-        return false
     }
     
     var body: some View

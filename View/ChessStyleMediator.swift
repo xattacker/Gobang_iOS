@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+@MainActor
 protocol ChessStyleMediator {
     func getChessColor(type: PlayerType) -> Color
 }

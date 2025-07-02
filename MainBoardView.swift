@@ -17,6 +17,9 @@ struct MainBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelD
     private var viewModel: GobangViewModel!
     @State private var refreshKey = UUID()
     
+    @State private var showChessSelectionDialog = false
+    @State private var selectedColor: ChessColor?
+    
     init() {
         for _ in 0 ..< GRID_DIMENSION {
             var subs = Array<GobangGrid>()
@@ -33,43 +36,58 @@ struct MainBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelD
    
     var body: some View
     {
-        return VStack(spacing: 0) {
-                // 中區塊（填滿剩餘空間）
-                VStack(spacing: 0) {
+        return ZStack {
                     VStack(spacing: 0) {
-                        ForEach(0 ..< GRID_DIMENSION) {
-                            y in
-                            HStack(spacing: 0) {
+                        // 中區塊（填滿剩餘空間）
+                        VStack(spacing: 0) {
+                            VStack(spacing: 0) {
                                 ForEach(0 ..< GRID_DIMENSION) {
-                                    x in
-                                    GridView(grid: grids[x][y], mediator: self) {
-                                    }.aspectRatio(1, contentMode: .fit)
+                                    y in
+                                    HStack(spacing: 0) {
+                                        ForEach(0 ..< GRID_DIMENSION) {
+                                            x in
+                                            GridView(grid: grids[x][y], mediator: self) {
+                                            }.aspectRatio(1, contentMode: .fit)
+                                        }
+                                    }
                                 }
-                            }
+                            }.background(Color("board_background"))
                         }
-                    }.background(Color("board_background"))
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.white)
-            
-              }.background(Color.white)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color.white)
+                    }
+                
+                    if showChessSelectionDialog {
+                        Color.black.opacity(0.4)
+                            .edgesIgnoringSafeArea(.all)
+                        
+                        ChessSelectionDialog(isPresented: $showChessSelectionDialog, selectedColor: $selectedColor)
+                    }
+            }.background(Color.white)
+            .onAppear {
+                self.showChessSelectionDialog = true
+            }
     }
     
-    nonisolated func getChessColor(type: PlayerType) -> Color
+    func getChessColor(type: PlayerType) -> Color
     {
+        guard let color = self.selectedColor else
+        {
+            return .clear
+        }
+        
         switch type {
             case .computer:
-                return .red
+                return color.theOther.displayColor
                 
             case .player:
-                return .blue
+                return color.displayColor
                 
             case .none:
-                return .white
+                return .clear
         }
     }
     
-    @MainActor
     func onCreateGrid(x: Int, y: Int) -> GobangGrid? {
         return self.grids[x][y]
     }

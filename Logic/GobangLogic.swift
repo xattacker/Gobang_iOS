@@ -154,7 +154,7 @@ class GobangLogic: GirdLogicAgent {
                 grids[step[0]][step[1]]?.connectedDirection = direction
             }
             
-            delegate?.onPlayerWon(winner: check)
+            self.delegate?.onPlayerWon(winner: check)
         }
         else
         {

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ChessView: View {
-    var bodyColor: Color = .clear
+    var chessColor: Color = .clear
 
     var body: some View {
         GeometryReader {
@@ -18,9 +18,9 @@ struct ChessView: View {
             let radius = size / 2 - 4
 
             ZStack {
-                if bodyColor != .clear {
+                if chessColor != .clear {
                     Circle()
-                        .fill(bodyColor)
+                        .fill(chessColor)
                         .frame(width: radius * 2, height: radius * 2)
 
                     Circle()
