@@ -27,7 +27,7 @@ class GobangLogic: GirdLogicAgent {
     private var offsetX: Int = 0
     private var offsetY: Int = 0
 
-    private var direction: ConnectedDirection = .unknown
+    private var direction: ConnectedDirection?
     private var histories: [GobangGrid] = []
     private var check: PlayerType = .none
     private var checkDirections = [Bool](repeating: false, count: 8)
@@ -158,16 +158,20 @@ class GobangLogic: GirdLogicAgent {
         }
         else
         {
-            direction = direction.next()
+            direction = direction?.next()
             
-            if direction != .unknown {
+            if direction != nil {
                 winCheck2()
             }
         }
     }
 
     private func checkOffset() {
-        let offset = direction.offset()
+        guard let offset = self.direction?.offset() else
+        {
+            return
+        }
+        
         offsetX = offset.0
         offsetY = offset.1
     }
@@ -297,7 +301,7 @@ class GobangLogic: GirdLogicAgent {
     private func gobangAI3_2() {
         if direction != .vertical {
             count = 1
-            direction = direction.next()
+            direction = direction?.next()
             gobangAI3(x: locX, y: locY)
         }
     }
@@ -321,7 +325,7 @@ class GobangLogic: GirdLogicAgent {
     private func gobangAI4() {
         count = 0
         checkOffset()
-        direction = direction.next()
+        direction = direction?.next()
         x = locX + offsetX
         y = locY + offsetY
 
@@ -342,7 +346,7 @@ class GobangLogic: GirdLogicAgent {
 
         if count >= 4 {
             setAIMark(x: locX, y: locY)
-        } else if direction != .unknown {
+        } else if direction != nil {
             gobangAI4()
         }
     }
@@ -364,7 +368,7 @@ class GobangLogic: GirdLogicAgent {
     private func gobangAI5_2() {
         count = 0
         checkOffset()
-        direction = direction.next()
+        direction = direction?.next()
         x = locX + offsetX
         y = locY + offsetY
 
@@ -403,12 +407,12 @@ class GobangLogic: GirdLogicAgent {
             {
                 setAIMark(x: locX + offsetX, y: locY + offsetY)
             }
-            else if direction != .unknown
+            else if direction != nil
             {
                 gobangAI5_2()
             }
         }
-        else if direction != .unknown
+        else if direction != nil
         {
             gobangAI5_2()
         }

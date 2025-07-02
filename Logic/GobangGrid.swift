@@ -32,7 +32,7 @@ final class GobangGrid: ObservableObject {
 
     internal func initial() {
         self.type = .none
-        self.connectedDirection = .unknown
+        self.connectedDirection = nil
     }
 
     internal func setXY(x: Int, y: Int) {

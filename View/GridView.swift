@@ -84,7 +84,7 @@ struct GridView: View {
                 }
 
                 // ✅ 勝利連線標記
-                if let dir = grid.connectedDirection, dir != .unknown {
+                if let dir = grid.connectedDirection {
                     Path {
                         path in
                         switch dir {
@@ -106,9 +106,6 @@ struct GridView: View {
                             case .vertical:
                                 path.move(to: CGPoint(x: -edgeOffset, y: middle))
                                 path.addLine(to: CGPoint(x: size, y: middle))
-                                break
-                            
-                            default:
                                 break
                         }
                     }
