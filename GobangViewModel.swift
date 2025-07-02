@@ -10,17 +10,23 @@ import Foundation
 import SwiftUI
 
 
+protocol GobangViewModelDelegate
+{
+    func onCreateGrid(x: Int, y: Int) -> GobangGrid?
+}
+
+
 final class GobangViewModel
 {
     private var logic: GobangLogic!
-    private var onCreateGrid: ((_ x: Int, _ y: Int) -> GobangGrid?)?
+    private var delegate: GobangViewModelDelegate?
 
-    init(gridDimension: Int, onCreateGrid: @escaping ((_ x: Int, _ y: Int) -> GobangGrid?)) {
+    init(gridDimension: Int, delegate: GobangViewModelDelegate)
+    {
+        self.delegate = delegate
         
         self.logic = GobangLogic(delegate: self, dimension: gridDimension)
         self.logic.restart()
-        
-        self.onCreateGrid = onCreateGrid
     }
     
     func restart()
@@ -39,7 +45,8 @@ extension GobangViewModel: GobangLogicDelegate
 {
     func createGrid(x: Int, y: Int) -> GobangGrid?
     {
-        return self.onCreateGrid?(x, y)
+        // by pass to delegate
+        return self.delegate?.onCreateGrid(x: x, y: y)
     }
     
     func onPlayerWon(winner: PlayerType)
