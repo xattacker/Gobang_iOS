@@ -8,11 +8,10 @@
 
 import SwiftUI
 
+private let GRID_DIMENSION = 14
 
 struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelDelegate
 {
-    private let GRID_DIMENSION = 14
-    
     private enum GameStatus: Int, Identifiable
     {
         case unknown = -1
@@ -27,9 +26,7 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
     }
     
     private var grids = Array<Array<GobangGrid>>()
-    private var viewModel: GobangViewModel!
-    @State private var refreshKey = UUID()
-    
+    @StateObject private var viewModel = GobangViewModel(gridDimension: GRID_DIMENSION)
     @State private var gameStatus: GameStatus = .unknown
     @State private var selectedChessType: ChessSelectionType?
     
@@ -43,15 +40,29 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
             
             self.grids.append(subs)
         }
-        
-        self.viewModel = GobangViewModel(gridDimension: GRID_DIMENSION, delegate: self)
     }
    
     var body: some View
     {
         return ZStack {
                     VStack(spacing: 0) {
+
                         VStack(spacing: 0) {
+                            HStack {
+                              Text("PLAYER".localized)
+                              .foregroundColor(.blue)
+                              .font(.body)
+                              ChessView(chessColor: selectedChessType?.displayColor ?? .clear)
+                              .frame(width: 40, height: 40)
+                              .padding(.trailing, 20)
+                            
+                              Text("OPPONENT".localized)
+                              .foregroundColor(.red)
+                              .font(.body)
+                              ChessView(chessColor: selectedChessType?.theOther.displayColor ?? .clear)
+                              .frame(width: 40, height: 40)
+                            }
+                            
                             VStack(spacing: 0) {
                                 ForEach(0 ..< GRID_DIMENSION) {
                                     y in
@@ -68,7 +79,7 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                             }.background(Color("board_background"))
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    }.allowsHitTesting(self.gameStatus == .chessing)
+                    }.allowsHitTesting(self.gameStatus == .chessing) // 下子中才可以點擊
             
                     VStack {
                          Spacer()
@@ -93,6 +104,8 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                     }
             }.background(Color.white)
             .onAppear {
+                self.viewModel.delegate = self
+                self.viewModel.restart()
                 self.gameStatus = .chessSelection
             }
     }
@@ -124,12 +137,20 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
     {
         self.gameStatus = .over
         
-        Task {
-            try? await Task.sleep(nanoseconds: 35 * 100_000_000) // 3.5 秒
-            
-            self.gameStatus = .chessing
-            self.viewModel.restart()
+        DispatchQueue.global().async {
+            Thread.sleep(forTimeInterval: 3.5)
+
+            DispatchQueue.main.async {
+               self.gameStatus = .chessing
+               self.viewModel.restart()
+            }
         }
+        
+//        Task {
+//            try? await Task.sleep(nanoseconds: 35 * 100_000_000) // 3.5 秒
+////            self.gameStatus = .chessing
+////            self.viewModel.restart()
+//        }
     }
     
     private var appVersion: String

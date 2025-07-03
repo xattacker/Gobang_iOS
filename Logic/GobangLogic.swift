@@ -482,6 +482,11 @@ class GobangLogic: GirdLogicAgent {
         winCheck()
         turn = .player
     }
+    
+    deinit
+    {
+        print("deinit")
+    }
 }
 
 

@@ -17,21 +17,18 @@ protocol GobangViewModelDelegate
 }
 
 
-final class GobangViewModel
+final class GobangViewModel: ObservableObject
 {
     private var selectedGridView: GridView?
     
     private var logic: GobangLogic!
-    private var delegate: GobangViewModelDelegate?
+    var delegate: GobangViewModelDelegate?
     
     private var recorder = GradeRecorder()
 
-    init(gridDimension: Int, delegate: GobangViewModelDelegate)
+    init(gridDimension: Int)
     {
-        self.delegate = delegate
-        
         self.logic = GobangLogic(delegate: self, dimension: gridDimension)
-        self.logic.restart()
     }
     
     @MainActor

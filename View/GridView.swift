@@ -110,7 +110,7 @@ struct GridView: View {
                         }
                     }
                     .stroke(Color.red, lineWidth: size / 8)
-                    .drawingGroup()
+                    //.drawingGroup()
                 }
             }
             .contentShape(Rectangle()) // for tap detection
