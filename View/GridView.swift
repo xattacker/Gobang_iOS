@@ -109,7 +109,7 @@ struct GridView: View {
                                 break
                         }
                     }
-                    .stroke(Color.red, lineWidth: size / 8)
+                    .stroke(Color.red, style: StrokeStyle(lineWidth: size / 8, lineCap: .round))
                     //.drawingGroup()
                 }
             }

@@ -14,9 +14,9 @@ protocol GradeRecord {
     var loseCount: Int { get }
 }
 
-final class GradeRecorder: GradeRecord {
-    private(set) var winCount: Int = 0
-    private(set) var loseCount: Int = 0
+final class GradeRecorder: GradeRecord, ObservableObject {
+    @Published private(set) var winCount: Int = 0
+    @Published private(set) var loseCount: Int = 0
 
     func addWin() {
         winCount += 1

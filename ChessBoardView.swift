@@ -10,19 +10,27 @@ import SwiftUI
 
 private let GRID_DIMENSION = 14
 
+
 struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModelDelegate
 {
-    private enum GameStatus: Int, Identifiable
+    private enum GameStatus: Identifiable, Equatable
     {
-        case unknown = -1
+        case unknown
         // 選子
-        case chessSelection = 0
+        case chessSelection
         // 下子中
-        case chessing = 1
+        case chessing
         // 結束
-        case over = 2
+        case over(winner: PlayerType)
         
-        var id: String { String(self.rawValue) }
+        var id: String {
+            "\(self)"
+        }
+        
+        public static func == (lhs: GameStatus, rhs: GameStatus) -> Bool
+        {
+            return lhs.id == rhs.id
+        }
     }
     
     private var grids = Array<Array<GobangGrid>>()
@@ -46,7 +54,14 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
     {
         return ZStack {
                     VStack(spacing: 0) {
-
+                        HStack {
+                            Text("WIN_COUNT".localized(self.viewModel.recorder.winCount, self.viewModel.recorder.loseCount))
+                            .foregroundColor(.darkGray)
+                            .font(.body)
+                            .padding(8)
+                            Spacer()
+                        }
+                        
                         VStack(spacing: 0) {
                             HStack {
                               Text("PLAYER".localized)
@@ -88,11 +103,13 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                               Text(String(format: "v %@", self.appVersion))
                               .foregroundColor(.darkGray)
                               .font(.caption)
-                              .padding()
+                              .padding(8)
                          }
                     }
             
-                    if self.gameStatus == .chessSelection {
+                switch self.gameStatus
+                {
+                    case .chessSelection:
                         Color.black.opacity(0.4)
                             .edgesIgnoringSafeArea(.all)
                         
@@ -101,11 +118,22 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                             self.selectedChessType = type
                             self.gameStatus = .chessing
                         }
-                    }
-            }.background(Color.white)
+                        
+                    case .over(let winner):
+                        VStack {
+                            Spacer()
+                            ToastView(message: winner == .player ? "YOU_WIN".localized : "YOU_LOSE".localized)
+                            .padding(.bottom, 40)
+                        }
+                        
+                    default:
+                        Spacer()
+                }
+            }.background(Color.systemGray6)
             .onAppear {
                 self.viewModel.delegate = self
                 self.viewModel.restart()
+                
                 self.gameStatus = .chessSelection
             }
     }
@@ -135,22 +163,26 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
     
     func onPlayerWon(winner: PlayerType)
     {
-        self.gameStatus = .over
+        self.gameStatus = .over(winner: winner)
         
-        DispatchQueue.global().async {
-            Thread.sleep(forTimeInterval: 3.5)
-
-            DispatchQueue.main.async {
-               self.gameStatus = .chessing
-               self.viewModel.restart()
+//        DispatchQueue.global().async {
+//            Thread.sleep(forTimeInterval: 3.5)
+//
+//            DispatchQueue.main.async {
+//               self.gameStatus = .chessing
+//               self.viewModel.restart()
+//            }
+//        }
+        
+        Task {
+            try? await Task.sleep(nanoseconds: 35 * 100_000_000) // 3.5 秒
+            
+            Task {
+                @MainActor in
+                self.gameStatus = .chessing
+                self.viewModel.restart()
             }
         }
-        
-//        Task {
-//            try? await Task.sleep(nanoseconds: 35 * 100_000_000) // 3.5 秒
-////            self.gameStatus = .chessing
-////            self.viewModel.restart()
-//        }
     }
     
     private var appVersion: String

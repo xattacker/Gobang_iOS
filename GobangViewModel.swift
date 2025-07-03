@@ -24,7 +24,7 @@ final class GobangViewModel: ObservableObject
     private var logic: GobangLogic!
     var delegate: GobangViewModelDelegate?
     
-    private var recorder = GradeRecorder()
+    @Published private(set) var recorder = GradeRecorder()
 
     init(gridDimension: Int)
     {
