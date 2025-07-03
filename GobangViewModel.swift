@@ -12,13 +12,13 @@ import SwiftUI
 
 protocol GobangViewModelDelegate
 {
-    func onCreateGrid(x: Int, y: Int) -> GobangGrid?
     func onPlayerWon(winner: PlayerType)
 }
 
 
 final class GobangViewModel: ObservableObject
 {
+    private(set) var grids = Array<Array<GobangGrid>>()
     private var selectedGridView: GridView?
     
     private var logic: GobangLogic!
@@ -28,6 +28,16 @@ final class GobangViewModel: ObservableObject
 
     init(gridDimension: Int)
     {
+        for _ in 0 ..< gridDimension {
+            var subs = Array<GobangGrid>()
+            for _ in 0 ..< gridDimension {
+                let grid = GobangGrid()
+                subs.append(grid)
+            }
+            
+            self.grids.append(subs)
+        }
+        
         self.logic = GobangLogic(delegate: self, dimension: gridDimension)
     }
     
@@ -56,8 +66,7 @@ extension GobangViewModel: GobangLogicDelegate
 {
     func createGrid(x: Int, y: Int) -> GobangGrid?
     {
-        // by pass to delegate
-        return self.delegate?.onCreateGrid(x: x, y: y)
+        return self.grids[x][y]
     }
     
     func onPlayerWon(winner: PlayerType)

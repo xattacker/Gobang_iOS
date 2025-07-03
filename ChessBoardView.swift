@@ -33,21 +33,11 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
         }
     }
     
-    private var grids = Array<Array<GobangGrid>>()
     @StateObject private var viewModel = GobangViewModel(gridDimension: GRID_DIMENSION)
     @State private var gameStatus: GameStatus = .unknown
     @State private var selectedChessType: ChessSelectionType?
     
     init() {
-        for _ in 0 ..< GRID_DIMENSION {
-            var subs = Array<GobangGrid>()
-            for _ in 0 ..< GRID_DIMENSION {
-                let grid = GobangGrid()
-                subs.append(grid)
-            }
-            
-            self.grids.append(subs)
-        }
     }
    
     var body: some View
@@ -84,7 +74,7 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                                     HStack(spacing: 0) {
                                         ForEach(0 ..< GRID_DIMENSION) {
                                             x in
-                                            GridView(grid: grids[x][y], mediator: self) {
+                                            GridView(grid: self.viewModel.grids[x][y], mediator: self) {
                                                 view in
                                                 viewModel.updateSelectedGridView(view)
                                             }.aspectRatio(1, contentMode: .fit)
@@ -155,10 +145,6 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
             case .none:
                 return .clear
         }
-    }
-    
-    func onCreateGrid(x: Int, y: Int) -> GobangGrid? {
-        return self.grids[x][y]
     }
     
     func onPlayerWon(winner: PlayerType)
