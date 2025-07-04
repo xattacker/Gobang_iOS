@@ -21,7 +21,6 @@ struct GridView: View {
             geometry in
             let size = geometry.size.width
             let middle = size / 2
-            let edgeOffset = size / 20
 
             ZStack {
                 // ✅ 綠色選取背景
@@ -85,6 +84,8 @@ struct GridView: View {
 
                 // ✅ 勝利連線標記
                 if let dir = grid.connectedDirection {
+                    let edgeOffset = 0.0//size / 20
+
                     Path {
                         path in
                         switch dir {
