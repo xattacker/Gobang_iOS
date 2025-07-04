@@ -25,9 +25,12 @@ struct GridView: View {
             ZStack {
                 // ✅ 綠色選取背景
                 if selected {
-                    Rectangle()
-                        .fill(Color.green)
-                        .frame(width: size, height: size)
+                    Path {
+                        path in
+                        path.addRect(CGRect(x: 0, y: 0, width: size, height: size))
+                    }
+                    .fill(Color.green)
+                    .frame(width: size, height: size)
                 }
 
                 // ✅ 畫棋盤線（黑線）
