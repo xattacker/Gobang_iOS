@@ -15,7 +15,7 @@ struct ChessView: View {
         GeometryReader {
             geometry in
             let size = min(geometry.size.width, geometry.size.height)
-            let radius = size / 2 - 4
+            let radius = (size / 2) - 4
 
             ZStack {
                 if chessColor != .clear {
