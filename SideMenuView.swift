@@ -29,6 +29,7 @@ enum SideMenuAction: CaseIterable
 
 struct SideMenuView: View {
     let onSelected: (_ action: SideMenuAction) -> Void
+    let onClosed: () -> Void
     
     var body: some View {
         VStack {
@@ -51,7 +52,13 @@ struct SideMenuView: View {
             }
             Spacer()
         }
+        .contentShape(Rectangle()) // for tap detection
+        .onTapGesture {
+            onClosed()
+        }
         .frame(maxWidth: .infinity, alignment: .leading) // 撐滿 SideMenuView 寬度
         .background(Color.white)
+        .compositingGroup() // 陰影獨立於子內容渲染
+        .shadow(radius: 5) // 這層加上陰影
     }
 }

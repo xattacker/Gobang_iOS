@@ -115,7 +115,7 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                 switch self.gameStatus
                 {
                     case .chessSelection:
-                        Color.black.opacity(0.4)
+                        Color.black.opacity(0.35)
                             .edgesIgnoringSafeArea(.all)
                         
                         ChessSelectionDialog {
@@ -133,6 +133,17 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
 
                     default:
                         Spacer()
+                }
+            
+                if isSideMenuOpen {
+                    // 背景遮罩層，點擊時關閉側邊選單
+                    Color.black.opacity(0.35)
+                        .ignoresSafeArea()
+                        .onTapGesture {
+                            withAnimation {
+                                isSideMenuOpen = false
+                            }
+                        }
                 }
             
                 // 側邊選單
@@ -163,6 +174,9 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                             isSideMenuOpen.toggle()
                             break
                     }
+                },
+                onClosed: {
+                    isSideMenuOpen = false
                 })
                 .frame(width: menuWidth)
                 .background(Color.white)
