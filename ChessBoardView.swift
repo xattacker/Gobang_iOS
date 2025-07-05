@@ -60,11 +60,11 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                                 action: {
                                     isSideMenuOpen.toggle()
                                 }){
-                               Image(systemName: "sidebar.right")
-                                    .tint(Color.darkGray)
-                                    .font(.title)
+                               Image(systemName: "line.horizontal.3")
+                               .tint(Color.darkGray)
+                               .font(.title)
                             }
-                            .padding(4)
+                            .padding(.trailing, 8)
                         }
                         
                         VStack(spacing: 0) {
