@@ -18,6 +18,23 @@
         }
       }
     },
+    "CANCEL" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
+          }
+        }
+      }
+    },
     "CHESS_SELECTION" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -35,19 +52,36 @@
         }
       }
     },
-    "FILL_NUMBER" : {
+    "CONFIRM" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Please Fill Number"
+            "value" : "Confirm"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "請先填入數字"
+            "value" : "確認"
+          }
+        }
+      }
+    },
+    "CONFIRM_RESTART" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm to Restart ?"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "確認重新開始?"
           }
         }
       }
@@ -65,6 +99,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "遊戲開始"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yes"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "確定"
           }
         }
       }

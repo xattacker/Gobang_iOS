@@ -37,12 +37,16 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
     @State private var gameStatus: GameStatus = .unknown
     @State private var selectedChessType: ChessSelectionType?
     
+    @State private var alertHandler = AlertHandleModifier()
+    @State private var isSideMenuOpen = false
+    private let menuWidth: CGFloat = 140
+    
     init() {
     }
    
     var body: some View
     {
-        return ZStack {
+        return ZStack(alignment: .trailing) {
                     VStack(spacing: 0) {
                         HStack {
                             Text("WIN_COUNT".localized(self.viewModel.recorder.winCount, self.viewModel.recorder.loseCount))
@@ -84,7 +88,7 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                             }.background(Color("board_background"))
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    }.allowsHitTesting(self.gameStatus == .chessing) // 下子中才可以點擊
+                    }.allowsHitTesting(self.gameStatus == .chessing && !self.isSideMenuOpen) // 下子中才可以點擊
             
                     VStack {
                          Spacer()
@@ -114,12 +118,68 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                             Spacer()
                             ToastView(message: winner == .player ? "YOU_WIN".localized : "YOU_LOSE".localized)
                             .padding(.bottom, 40)
-                        }
-                        
+                        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+
                     default:
                         Spacer()
                 }
-            }.background(Color.systemGray6)
+            
+                // 側邊選單
+                SideMenuView(onSelected: {
+                    action in
+                    switch action {
+                        case .restart:
+                            alertHandler.showAlert(
+                                "CONFIRM_RESTART".localized,
+                                message: "",
+                                buttons: [
+                                    AlertHandleModifier.ButtonInfo(
+                                        title: "OK".localized,
+                                        role: nil,
+                                        action: {
+                                            restartGame()
+                                            isSideMenuOpen.toggle()
+                                    }),
+                                    AlertHandleModifier.ButtonInfo(
+                                        title: "CANCEL".localized,
+                                        role: .cancel,
+                                        action: {
+                                     })])
+                            break
+                        
+                        case .undo:
+                            viewModel.undo()
+                            isSideMenuOpen.toggle()
+                            break
+                    }
+                })
+                .frame(width: menuWidth)
+                .background(Color.white)
+                .offset(x: isSideMenuOpen ? 0 : menuWidth)
+                .shadow(radius: 5)
+                .animation(.easeInOut, value: isSideMenuOpen)
+                .allowsHitTesting(self.gameStatus == .chessing) // 下子中才可以點擊
+            }
+            .background(Color.systemGray6)
+            .modifier(alertHandler)
+            .gesture(
+                self.gameStatus == .chessing ? // 下子中才能拖拉選單
+                DragGesture()
+                    .onEnded {
+                        value in
+                        // 偵測右向左滑
+                        if value.translation.width < -50 {
+                            withAnimation {
+                                isSideMenuOpen = true
+                            }
+                        } else if value.translation.width > 50 {
+                            withAnimation {
+                                isSideMenuOpen = false
+                            }
+                        }
+                    } :
+                nil
+            )
             .onAppear {
                 self.viewModel.delegate = self
                 self.viewModel.restart()
@@ -165,10 +225,15 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
             
             Task {
                 @MainActor in
-                self.gameStatus = .chessing
-                self.viewModel.restart()
+                restartGame()
             }
         }
+    }
+    
+    private func restartGame()
+    {
+        self.gameStatus = .chessing
+        self.viewModel.restart()
     }
     
     private var appVersion: String
