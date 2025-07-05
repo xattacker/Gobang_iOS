@@ -53,7 +53,18 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                             .foregroundColor(.darkGray)
                             .font(.body)
                             .padding(8)
+                            
                             Spacer()
+                            
+                            Button(
+                                action: {
+                                    isSideMenuOpen.toggle()
+                                }){
+                               Image(systemName: "sidebar.right")
+                                    .tint(Color.darkGray)
+                                    .font(.title)
+                            }
+                            .padding(4)
                         }
                         
                         VStack(spacing: 0) {
@@ -156,7 +167,7 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                 .frame(width: menuWidth)
                 .background(Color.white)
                 .offset(x: isSideMenuOpen ? 0 : menuWidth)
-                .shadow(radius: 5)
+                //.shadow(radius: 5)
                 .animation(.easeInOut, value: isSideMenuOpen)
                 .allowsHitTesting(self.gameStatus == .chessing) // 下子中才可以點擊
             }

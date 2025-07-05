@@ -46,7 +46,7 @@ struct SideMenuView: View {
                     }
                 }
                 Rectangle()
-                    .fill(Color.lightGray)
+                    .fill(Color.systemGray5)
                     .frame(height: 1)
             }
             Spacer()
