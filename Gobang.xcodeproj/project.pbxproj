@@ -13,6 +13,7 @@
 		68E91B35234D816C000507AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E91B34234D816C000507AE /* Preview Assets.xcassets */; };
 		68E91B38234D816C000507AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68E91B36234D816C000507AE /* LaunchScreen.storyboard */; };
 		C515E1DB2E1620C200262FE7 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515E1DA2E1620C200262FE7 /* ToastView.swift */; };
+		C527DACB2E1B9F0D00581223 /* PlayerTypeBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C527DACA2E1B9F0D00581223 /* PlayerTypeBarView.swift */; };
 		C55CA8C62E127AFC00E4DF3C /* GobangLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8C52E127AFC00E4DF3C /* GobangLogic.swift */; };
 		C55CA8C82E127B3200E4DF3C /* PlayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8C72E127B3200E4DF3C /* PlayerType.swift */; };
 		C55CA8CA2E127B9900E4DF3C /* GirdLogicAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8C92E127B9900E4DF3C /* GirdLogicAgent.swift */; };
@@ -44,6 +45,7 @@
 		68E91B37234D816C000507AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68E91B39234D816C000507AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C515E1DA2E1620C200262FE7 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		C527DACA2E1B9F0D00581223 /* PlayerTypeBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTypeBarView.swift; sourceTree = "<group>"; };
 		C55CA8C52E127AFC00E4DF3C /* GobangLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangLogic.swift; sourceTree = "<group>"; };
 		C55CA8C72E127B3200E4DF3C /* PlayerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerType.swift; sourceTree = "<group>"; };
 		C55CA8C92E127B9900E4DF3C /* GirdLogicAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirdLogicAgent.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				C5A1812F2D38ADFE007353B8 /* ChessBoardView.swift */,
 				C5E64D482E151805006A18C2 /* ChessSelectionDialog.swift */,
 				C5D07BD42E196FF800569038 /* SideMenuView.swift */,
+				C527DACA2E1B9F0D00581223 /* PlayerTypeBarView.swift */,
 				C5D48E042E13AC63003BB920 /* GobangViewModel.swift */,
 				C5E64D4C2E1531DF006A18C2 /* GradeRecorder.swift */,
 				C5E64D472E151345006A18C2 /* Resource */,
@@ -251,6 +254,7 @@
 				C5E64D4B2E1519D9006A18C2 /* String+Extension.swift in Sources */,
 				C5D48E052E13AC63003BB920 /* GobangViewModel.swift in Sources */,
 				C55CA8C82E127B3200E4DF3C /* PlayerType.swift in Sources */,
+				C527DACB2E1B9F0D00581223 /* PlayerTypeBarView.swift in Sources */,
 				C55CA8D22E1290CF00E4DF3C /* GobangLogicDelegate.swift in Sources */,
 				C5D48DFF2E136FB0003BB920 /* ChessStyleMediator.swift in Sources */,
 				C55CA8CA2E127B9900E4DF3C /* GirdLogicAgent.swift in Sources */,
