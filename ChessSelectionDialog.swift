@@ -40,6 +40,8 @@ struct ChessSelectionDialog: View {
     let onSelected: (_ type: ChessSelectionType) -> Void
     
     var body: some View {
+        Color.black.opacity(0.35)
+            .edgesIgnoringSafeArea(.all)
         VStack(spacing: 16) {
             HStack {
                 Text("CHESS_SELECTION".localized)

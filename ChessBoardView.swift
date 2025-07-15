@@ -103,9 +103,6 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                     switch self.gameStatus
                     {
                         case .chessSelection:
-                            Color.black.opacity(0.35)
-                                .edgesIgnoringSafeArea(.all)
-                            
                             ChessSelectionDialog {
                                 type in
                                 self.viewModel.selectedChessType = type
@@ -113,11 +110,8 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                             }
                             
                         case .over(let winner):
-                            VStack {
-                                Spacer()
-                                ToastView(message: winner == .player ? "YOU_WIN".localized : "YOU_LOSE".localized)
-                                    .padding(.bottom, 40)
-                            }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                            ToastView(message: winner == .player ? "YOU_WIN".localized : "YOU_LOSE".localized,
+                                      gravity: .bottom)
                             
                         default:
                             Spacer()
