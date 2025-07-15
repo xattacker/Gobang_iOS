@@ -25,7 +25,8 @@ final class GobangViewModel: ObservableObject
     var delegate: GobangViewModelDelegate?
     
     @Published private(set) var recorder = GradeRecorder()
-
+    @Published var selectedChessType: ChessSelectionType?
+    
     init(gridDimension: Int)
     {
         for _ in 0 ..< gridDimension {

@@ -35,7 +35,6 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
     
     @StateObject private var viewModel = GobangViewModel(gridDimension: GRID_DIMENSION)
     @State private var gameStatus: GameStatus = .unknown
-    @State private var selectedChessType: ChessSelectionType?
     
     @State private var alertHandler = AlertHandleModifier()
     @State private var isSideMenuOpen = false
@@ -70,7 +69,7 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                         }
                         
                         VStack(spacing: 0) {
-                            PlayerTypeBarView(selectedChessType: $selectedChessType)
+                            PlayerTypeBarView(selectedChessType: $viewModel.selectedChessType)
                             
                             VStack(spacing: 0) {
                                 ForEach(0 ..< GRID_DIMENSION) {
@@ -94,7 +93,7 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                         Spacer()
                         HStack {
                             Spacer()
-                            Text(String(format: "v %@", self.appVersion))
+                            Text(String(format: "v %@", AppUtil.appVersion))
                                 .foregroundColor(.darkGray)
                                 .font(.caption)
                                 .padding(8)
@@ -109,7 +108,7 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                             
                             ChessSelectionDialog {
                                 type in
-                                self.selectedChessType = type
+                                self.viewModel.selectedChessType = type
                                 self.gameStatus = .chessing
                             }
                             
@@ -140,7 +139,7 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                         action in
                         handleSideMenuAction(action)
                     },
-                                 isSideMenuOpen: $isSideMenuOpen)
+                    isSideMenuOpen: $isSideMenuOpen)
                     .frame(width: menuWidth)
                     .background(Color.white)
                     .offset(x: isSideMenuOpen ? 0 : menuWidth)
@@ -183,7 +182,7 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
     
     func getChessColor(type: PlayerType) -> Color
     {
-        guard let color = self.selectedChessType else
+        guard let color = self.viewModel.selectedChessType else
         {
             return .clear
         }
@@ -256,11 +255,5 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
     {
         self.gameStatus = .chessing
         self.viewModel.restart()
-    }
-    
-    private var appVersion: String
-    {
-        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
-        return version ?? ""
     }
 }
