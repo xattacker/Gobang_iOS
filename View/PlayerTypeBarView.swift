@@ -17,14 +17,16 @@ struct PlayerTypeBarView: View {
             Text("PLAYER".localized)
                 .foregroundColor(.blue)
                 .font(.body)
-            ChessView(chessColor: selectedChessType?.displayColor ?? .clear)
+            ChessView(chessColor: selectedChessType?.displayColor ?? .clear,
+                      edge: 3)
                 .frame(width: 40, height: 40)
                 .padding(.trailing, 20)
             
             Text("OPPONENT".localized)
                 .foregroundColor(.red)
                 .font(.body)
-            ChessView(chessColor: selectedChessType?.theOther.displayColor ?? .clear)
+            ChessView(chessColor: selectedChessType?.theOther.displayColor ?? .clear,
+                      edge: 3)
                 .frame(width: 40, height: 40)
         }
     }

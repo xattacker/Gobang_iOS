@@ -11,51 +11,38 @@ import SwiftUI
 
 struct ChessView: View {
     var chessColor: Color = .clear
+    var edge: Float = 2
 
     var body: some View {
         GeometryReader {
             geometry in
             ZStack {
                 if chessColor != .clear {
-                    let size = min(geometry.size.width, geometry.size.height)
-                    let radius = (size / 2) - 4
-
                     // 棋子主體圓形
-                    Circle()
-                        .fill(chessColor)
-                        .frame(width: radius * 2, height: radius * 2)
-                        // 高光1：強烈光點（鏡面反射）
-                        .overlay(
-                            Circle()
-                                .fill(
-                                    RadialGradient(
-                                        gradient: Gradient(colors: [.white.opacity(0.9), .clear]),
-                                        center: .topLeading,
-                                        startRadius: 0,
-                                        endRadius: radius * 0.8
-                                    )
+                    let width = geometry.size.width
+                    let radius = (width / 2) - (CGFloat(edge) * 2)
+
+                    ZStack {
+                        // 陰影 + 主體
+                        Circle()
+                            .fill(chessColor)
+                            .frame(width: radius * 2, height: radius * 2)
+                            .shadow(color: .black.opacity(0.3), radius: 3, x: 4, y: 4) // 模擬 Android 的 setShadowLayer
+
+                        // Radial 高光 (模擬反射光源)
+                        Circle()
+                            .fill(
+                                RadialGradient(
+                                    gradient: Gradient(colors: [Color.white.opacity(0.9), .clear]),
+                                    center: .init(x: 0.3, y: 0.3), // 模擬 cx - radius * 0.4, cy - radius * 0.4
+                                    startRadius: 0,
+                                    endRadius: radius
                                 )
-                                .blendMode(.screen)
-                        )
-                        // 高光2：月牙形斜向光帶
-                        .overlay(
-                            Circle()
-                                .strokeBorder(
-                                    LinearGradient(
-                                        gradient: Gradient(colors: [
-                                            .white.opacity(0.5),
-                                            .clear
-                                        ]),
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    ),
-                                    lineWidth: radius * 0.2
-                                )
-                                .blur(radius: 1)
-                                .offset(x: -radius * 0.2, y: -radius * 0.2)
-                                .mask(Circle())
-                        )
-                        .shadow(color: .black.opacity(0.3), radius: 3, x: 2, y: 2) // 外陰影
+                            )
+                            .frame(width: radius * 2, height: radius * 2)
+                            .blendMode(.screen)
+                    }
+                    .frame(width: geometry.size.width, height: geometry.size.height)
 
                     // 外框
 //                    Circle()
