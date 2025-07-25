@@ -17,8 +17,7 @@ struct PlayerTypeBarView: View {
             Text("PLAYER".localized)
                 .foregroundColor(.blue)
                 .font(.body)
-                ChessView(chessColor: selectedChessType?.chessColor ?? .clear,
-                          borderColor: selectedChessType?.borderColor ?? .clear,
+                ChessView(chessType: selectedChessType ?? .none,
                           edge: 3)
                 .frame(width: 40, height: 40)
                 .padding(.trailing, 20)
@@ -26,8 +25,7 @@ struct PlayerTypeBarView: View {
             Text("OPPONENT".localized)
                 .foregroundColor(.red)
                 .font(.body)
-                ChessView(chessColor: selectedChessType?.theOther.chessColor ?? .clear,
-                          borderColor: selectedChessType?.theOther.borderColor ?? .clear,
+                ChessView(chessType: selectedChessType?.theOther ?? .none,
                           edge: 3)
                 .frame(width: 40, height: 40)
         }

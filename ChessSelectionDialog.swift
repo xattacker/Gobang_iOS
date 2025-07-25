@@ -10,6 +10,8 @@ import SwiftUI
 
 
 enum ChessSelectionType: String, CaseIterable, Identifiable {
+    case none
+    
     case black = "BLACK_CHESS"
     case white = "WHITE_CHESS"
     
@@ -18,6 +20,9 @@ enum ChessSelectionType: String, CaseIterable, Identifiable {
     
     var chessColor: Color {
         switch self {
+            case .none:
+                return Color.clear
+            
             case .black:
                 return Color("color_chess_black")
             
@@ -28,6 +33,9 @@ enum ChessSelectionType: String, CaseIterable, Identifiable {
     
     var borderColor: Color {
         switch self {
+            case .none:
+                return Color.clear
+            
             case .black:
                 return Color("color_border_black")
             
@@ -39,6 +47,9 @@ enum ChessSelectionType: String, CaseIterable, Identifiable {
     var theOther: ChessSelectionType
     {
         switch self {
+            case .none:
+                return self
+            
             case .black:
                 return ChessSelectionType.white
             
@@ -68,19 +79,21 @@ struct ChessSelectionDialog: View {
             // 單選選項
             ForEach(ChessSelectionType.allCases) {
                 type in
-                Button {
-                    onSelected(type)
-                } label: {
-                    HStack {
-                        ChessView(chessColor: type.chessColor,
-                                  borderColor: type.borderColor)
-                            .frame(width: 30, height: 30)
-                        Text(type.name)
-                            .foregroundColor(.primary)
-                        Spacer()
+                if type != .none
+                {
+                    Button {
+                        onSelected(type)
+                    } label: {
+                        HStack {
+                            ChessView(chessType: type)
+                                .frame(width: 30, height: 30)
+                            Text(type.name)
+                                .foregroundColor(.primary)
+                            Spacer()
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.vertical, 6)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.vertical, 6)
                 }
             }
         }

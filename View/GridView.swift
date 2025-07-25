@@ -81,9 +81,7 @@ struct GridView: View {
 
                 // ✅ 棋子
                 if grid.type != PlayerType.none {
-                    let color = mediator.getChessColor(type: grid.type)
-                    ChessView(chessColor: color.chess,
-                              borderColor: color.border,
+                    ChessView(chessType: mediator.getChessType(playerType: grid.type),
                               edge: 2)
                         .frame(width: size, height: size)
                 }

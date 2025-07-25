@@ -10,15 +10,14 @@ import SwiftUI
 
 
 struct ChessView: View {
-    var chessColor: Color = .clear
-    var borderColor: Color = .clear
+    var chessType: ChessSelectionType
     var edge: Float = 2
 
     var body: some View {
         GeometryReader {
             geometry in
             ZStack {
-                if chessColor != .clear {
+                if chessType != .none {
                     // 棋子主體圓形
                     let width = geometry.size.width
                     let radius = (width / 2) - (CGFloat(edge) * 2)
@@ -26,7 +25,7 @@ struct ChessView: View {
                     ZStack {
                         // 陰影 + 主體
                         Circle()
-                            .fill(chessColor)
+                            .fill(chessType.chessColor)
                             .frame(width: radius * 2, height: radius * 2)
                             .shadow(color: .black.opacity(0.3), radius: 3, x: 4, y: 4) // 模擬 Android 的 setShadowLayer
 
@@ -47,7 +46,7 @@ struct ChessView: View {
 
                     // 外框
                     Circle()
-                        .stroke(borderColor, lineWidth: 0.8)
+                        .stroke(chessType.borderColor, lineWidth: 0.8)
                         .frame(width: radius * 2, height: radius * 2)
                 }
             }
