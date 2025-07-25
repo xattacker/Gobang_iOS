@@ -27,16 +27,19 @@ struct ChessView: View {
                         Circle()
                             .fill(chessType.chessColor)
                             .frame(width: radius * 2, height: radius * 2)
-                            .shadow(color: .black.opacity(0.3), radius: 3, x: 4, y: 4) // 模擬 Android 的 setShadowLayer
+                            .shadow(color: .black.opacity(0.5), radius: 1.5, x: 2, y: 2)
 
                         // Radial 高光 (模擬反射光源)
                         Circle()
                             .fill(
                                 RadialGradient(
-                                    gradient: Gradient(colors: [Color.white.opacity(0.9), .clear]),
+                                    gradient: Gradient(colors: [chessType == .white ?
+                                                                Color.white :
+                                                                Color.white.opacity(0.9),
+                                                                .clear]),
                                     center: .init(x: 0.3, y: 0.3), // 模擬 cx - radius * 0.4, cy - radius * 0.4
                                     startRadius: 0,
-                                    endRadius: radius
+                                    endRadius: chessType == .white ? radius * 1.4 : radius * 0.6
                                 )
                             )
                             .frame(width: radius * 2, height: radius * 2)
