@@ -174,22 +174,22 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
         }
     }
     
-    func getChessColor(type: PlayerType) -> Color
+    func getChessColor(type: PlayerType) -> (chess: Color, border: Color)
     {
         guard let color = self.viewModel.selectedChessType else
         {
-            return .clear
+            return (.clear, .clear)
         }
         
         switch type {
             case .computer:
-                return color.theOther.displayColor
+                return (color.theOther.chessColor, color.theOther.borderColor)
                 
             case .player:
-                return color.displayColor
+                return (color.chessColor, color.borderColor)
                 
             case .none:
-                return .clear
+                return (.clear, .clear)
         }
     }
     

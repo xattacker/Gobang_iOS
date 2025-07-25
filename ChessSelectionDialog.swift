@@ -16,12 +16,23 @@ enum ChessSelectionType: String, CaseIterable, Identifiable {
     var id: String { self.rawValue }
     var name: String { self.rawValue.localized }
     
-    var displayColor: Color {
+    var chessColor: Color {
         switch self {
             case .black:
                 return Color("color_chess_black")
+            
             case .white:
                 return Color("color_chess_white")
+        }
+    }
+    
+    var borderColor: Color {
+        switch self {
+            case .black:
+                return Color("color_border_black")
+            
+            case .white:
+                return Color("color_border_white")
         }
     }
     
@@ -30,6 +41,7 @@ enum ChessSelectionType: String, CaseIterable, Identifiable {
         switch self {
             case .black:
                 return ChessSelectionType.white
+            
             case .white:
                 return ChessSelectionType.black
         }
@@ -59,7 +71,7 @@ struct ChessSelectionDialog: View {
                     onSelected(type)
                 } label: {
                     HStack {
-                        ChessView(chessColor: type.displayColor)
+                        ChessView(chessColor: type.chessColor, borderColor: type.borderColor)
                             .frame(width: 24, height: 24)
                         Text(type.name)
                             .foregroundColor(.primary)

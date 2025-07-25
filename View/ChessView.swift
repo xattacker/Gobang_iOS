@@ -11,6 +11,7 @@ import SwiftUI
 
 struct ChessView: View {
     var chessColor: Color = .clear
+    var borderColor: Color = .clear
     var edge: Float = 2
 
     var body: some View {
@@ -45,9 +46,9 @@ struct ChessView: View {
                     .frame(width: geometry.size.width, height: geometry.size.height)
 
                     // 外框
-//                    Circle()
-//                        .stroke(Color.gray, lineWidth: 1)
-//                        .frame(width: radius * 2, height: radius * 2)
+                    Circle()
+                        .stroke(borderColor, lineWidth: 0.8)
+                        .frame(width: radius * 2, height: radius * 2)
                 }
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
