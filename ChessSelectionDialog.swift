@@ -48,6 +48,7 @@ enum ChessSelectionType: String, CaseIterable, Identifiable {
     }
 }
 
+
 struct ChessSelectionDialog: View {
     let onSelected: (_ type: ChessSelectionType) -> Void
     
@@ -71,8 +72,9 @@ struct ChessSelectionDialog: View {
                     onSelected(type)
                 } label: {
                     HStack {
-                        ChessView(chessColor: type.chessColor, borderColor: type.borderColor)
-                            .frame(width: 24, height: 24)
+                        ChessView(chessColor: type.chessColor,
+                                  borderColor: type.borderColor)
+                            .frame(width: 30, height: 30)
                         Text(type.name)
                             .foregroundColor(.primary)
                         Spacer()
