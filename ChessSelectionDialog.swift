@@ -9,70 +9,21 @@
 import SwiftUI
 
 
-enum ChessSelectionType: String, CaseIterable, Identifiable {
-    case none
-    
-    case black = "BLACK_CHESS"
-    case white = "WHITE_CHESS"
-    
-    var id: String { self.rawValue }
-    var name: String { self.rawValue.localized }
-    
-    var chessColor: Color {
-        switch self {
-            case .none:
-                return Color.clear
-            
-            case .black:
-                return Color("color_chess_black")
-            
-            case .white:
-                return Color("color_chess_white")
-        }
-    }
-    
-    var borderColor: Color {
-        switch self {
-            case .none:
-                return Color.clear
-            
-            case .black:
-                return Color("color_border_black")
-            
-            case .white:
-                return Color("color_border_white")
-        }
-    }
-    
-    var theOther: ChessSelectionType
-    {
-        switch self {
-            case .none:
-                return self
-            
-            case .black:
-                return ChessSelectionType.white
-            
-            case .white:
-                return ChessSelectionType.black
-        }
-    }
-}
-
-
 struct ChessSelectionDialog: View {
     let onSelected: (_ type: ChessSelectionType) -> Void
     
     var body: some View {
         Color.black.opacity(0.35)
             .edgesIgnoringSafeArea(.all)
-        VStack(spacing: 16) {
+        VStack(spacing: 0) {
             HStack {
                 Text("CHESS_SELECTION".localized)
                     .font(.title2)
                     .foregroundColor(.blue)
                 Spacer()
             }
+            .padding(.vertical, 12)
+            .padding(.horizontal, 20)
             
             Divider()
             
@@ -86,21 +37,36 @@ struct ChessSelectionDialog: View {
                     } label: {
                         HStack {
                             ChessView(chessType: type)
-                                .frame(width: 30, height: 30)
+                                .frame(width: 40, height: 40)
                             Text(type.name)
                                 .foregroundColor(.primary)
                             Spacer()
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.vertical, 6)
+                        .padding(.vertical, 2)
                     }
+                    .buttonStyle(HighlightButtonStyle())
                 }
             }
         }
-        .padding()
+        .padding(.vertical, 10)
         .background(.white)
         .cornerRadius(16)
         .shadow(radius: 10)
         .padding()
+    }
+}
+
+
+fileprivate struct HighlightButtonStyle: ButtonStyle {
+    let normalColor: Color = .white
+    let highlightColor: Color = .systemGray5
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .background(configuration.isPressed ? highlightColor : normalColor)
+            .foregroundColor(.white)
+            .animation(.easeInOut(duration: 0.2), value: configuration.isPressed)
     }
 }

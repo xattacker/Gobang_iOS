@@ -37,7 +37,7 @@ struct ChessView: View {
                                                                 Color.white :
                                                                 Color.white.opacity(0.9),
                                                                 .clear]),
-                                    center: .init(x: 0.3, y: 0.3), // 模擬 cx - radius * 0.4, cy - radius * 0.4
+                                    center: .init(x: 0.3, y: 0.3),
                                     startRadius: 0,
                                     endRadius: chessType == .white ? radius * 1.4 : radius * 0.6
                                 )
@@ -49,7 +49,7 @@ struct ChessView: View {
 
                     // 外框
                     Circle()
-                        .stroke(chessType.borderColor, lineWidth: 0.8)
+                        .stroke(chessType.borderColor, lineWidth: 0.5)
                         .frame(width: radius * 2, height: radius * 2)
                 }
             }
