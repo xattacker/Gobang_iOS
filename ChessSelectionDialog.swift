@@ -43,7 +43,7 @@ struct ChessSelectionDialog: View {
                             Spacer()
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.vertical, 2)
+                        .padding(12)
                     }
                     .buttonStyle(HighlightButtonStyle())
                 }
@@ -64,7 +64,6 @@ fileprivate struct HighlightButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .padding()
             .background(configuration.isPressed ? highlightColor : normalColor)
             .foregroundColor(.white)
             .animation(.easeInOut(duration: 0.2), value: configuration.isPressed)
