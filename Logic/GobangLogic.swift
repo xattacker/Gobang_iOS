@@ -102,6 +102,26 @@ class GobangLogic: GirdLogicAgent {
         histories.removeAll()
         over = false
     }
+    
+    func importRecord(_ source: GobangChessRecordSource)
+    {
+        self.restart()
+        
+        self.over = true
+        
+        let records = source.getChessRecord()
+        for record in records {
+            guard let grid = self.grids[record.x][record.y] else
+            {
+                continue
+            }
+            
+            grid.type = record.type
+            self.histories.append(grid)
+        }
+        
+        self.over = false
+    }
 
     func undo() {
         if histories.count >= 2 {

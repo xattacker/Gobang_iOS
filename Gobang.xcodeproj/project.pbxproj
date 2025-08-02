@@ -15,6 +15,7 @@
 		C50307242E25EB900065A59C /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50307232E25EB900065A59C /* AppUtil.swift */; };
 		C511BFCA2E3868B800D1406C /* ChessSelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C511BFC92E3868B800D1406C /* ChessSelectionType.swift */; };
 		C515E1DB2E1620C200262FE7 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C515E1DA2E1620C200262FE7 /* ToastView.swift */; };
+		C517C3EB2E3E05E600141FF3 /* GobangChessRecordSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C517C3EA2E3E05E600141FF3 /* GobangChessRecordSource.swift */; };
 		C527DACB2E1B9F0D00581223 /* PlayerTypeBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C527DACA2E1B9F0D00581223 /* PlayerTypeBarView.swift */; };
 		C55CA8C62E127AFC00E4DF3C /* GobangLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8C52E127AFC00E4DF3C /* GobangLogic.swift */; };
 		C55CA8C82E127B3200E4DF3C /* PlayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55CA8C72E127B3200E4DF3C /* PlayerType.swift */; };
@@ -49,6 +50,7 @@
 		C50307232E25EB900065A59C /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
 		C511BFC92E3868B800D1406C /* ChessSelectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessSelectionType.swift; sourceTree = "<group>"; };
 		C515E1DA2E1620C200262FE7 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		C517C3EA2E3E05E600141FF3 /* GobangChessRecordSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangChessRecordSource.swift; sourceTree = "<group>"; };
 		C527DACA2E1B9F0D00581223 /* PlayerTypeBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTypeBarView.swift; sourceTree = "<group>"; };
 		C55CA8C52E127AFC00E4DF3C /* GobangLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GobangLogic.swift; sourceTree = "<group>"; };
 		C55CA8C72E127B3200E4DF3C /* PlayerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerType.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				C55CA8C92E127B9900E4DF3C /* GirdLogicAgent.swift */,
 				C55CA8C52E127AFC00E4DF3C /* GobangLogic.swift */,
 				C55CA8D12E1290CF00E4DF3C /* GobangLogicDelegate.swift */,
+				C517C3EA2E3E05E600141FF3 /* GobangChessRecordSource.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				C5A5675F2D509FAE004F1A06 /* Color+Extension.swift in Sources */,
 				C5E64D4B2E1519D9006A18C2 /* String+Extension.swift in Sources */,
 				C50307242E25EB900065A59C /* AppUtil.swift in Sources */,
+				C517C3EB2E3E05E600141FF3 /* GobangChessRecordSource.swift in Sources */,
 				C5D48E052E13AC63003BB920 /* GobangViewModel.swift in Sources */,
 				C55CA8C82E127B3200E4DF3C /* PlayerType.swift in Sources */,
 				C527DACB2E1B9F0D00581223 /* PlayerTypeBarView.swift in Sources */,
