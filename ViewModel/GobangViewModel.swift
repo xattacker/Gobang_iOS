@@ -51,7 +51,7 @@ final class GobangViewModel: ObservableObject
         self.selectedGridView = gridView
     }
     
-    func importRecord(_ source: GobangChessRecordSource)
+    func importRecord(_ source: GobangRecordSource)
     {
         self.logic.importRecord(source)
     }

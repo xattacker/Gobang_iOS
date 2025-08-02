@@ -109,7 +109,7 @@ struct ChessBoardView: View, ChessStyleMediator, @preconcurrency GobangViewModel
                                 self.viewModel.selectedChessType = type
                                 self.gameStatus = .chessing
                                 
-                                //self.viewModel.importRecord(MockChessRecordSource())
+                                //self.viewModel.importRecord(MockGobangRecordSource())
                             }
                             
                         case .over(let winner):

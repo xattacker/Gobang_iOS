@@ -103,13 +103,13 @@ class GobangLogic: GirdLogicAgent {
         over = false
     }
     
-    func importRecord(_ source: GobangChessRecordSource)
+    func importRecord(_ source: GobangRecordSource)
     {
         self.restart()
         
         self.over = true
         
-        let records = source.getChessRecord()
+        let records = source.getGridRecord()
         for record in records {
             guard let grid = self.grids[record.x][record.y] else
             {
